@@ -2,22 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 780px) {
+    .Mission {
+        @apply
+            overflow-y-auto
+    }
+}
+.LandingContainer {
+    @apply
+        bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900
+    }
+.Branding {
+    @apply
+        flex
+        justify-center
+        items-center
+        w-11/12
+}
 .Nav {
     @apply
-    flex 
+    flex
     justify-end
-    bg-Secondary
     items-center
 }
-.Nav > h1 {
+.Branding > h1 {
     @apply
-        w-4/5
         text-center
-        text-2xl
+        text-5xl
         m-2
         font-bold
+        text-Text
 }
-
 .Nav > * {
     @apply
         mx-3
@@ -37,8 +52,7 @@
         justify-center
         items-center
         p-4
-        bg-Primary
-        rounded-lg
+        text-Text
 }
 #Login {
     @apply

@@ -4,17 +4,24 @@ import Link from 'next/link';
 import '../css/home.css';
 
 import Bear from '../../assets/home/Teddybear.png';
+import Logo from '../../assets/home/Logo.png';
 
 // Todo
 // Sticky nav on scroll(?)
 
 export default function Home() {
   return (
-    <div>
+    <div className='LandingContainer'>
       <div className="Nav">
-        <h1>
-          TeddyBear
-        </h1>
+        <div className='Branding'>
+          <Image
+            src={Logo}
+            width={50}
+            height={50}/>
+          <h1>
+            Meddy
+          </h1>
+        </div>
         <Link href={'./login'} id="Login">Login
         </Link>
         <Link href={'./signup'}id="Signup">Signup
@@ -22,10 +29,10 @@ export default function Home() {
       </div>
       <div className="Mission">
         <p>
-        TeddyBear is on a mission to revolutionize the way healthcare is experienced by bridging the gap between communities, patients, and providers. Our platform fosters seamless collaboration, creating a cohesive support system that empowers patients while strengthening the relationships between care teams and the broader community. By integrating cutting-edge technology with a human-centered approach, Teddy Bear aims to deliver personalized, accessible care and foster a sense of connection that goes beyond traditional healthcare models
+          Meddy aims to connect communities, patient, and providers to provide a coheisive support system.
         </p>
         <Image
-          src={Bear}
+          src={Logo}
           width={200}
           height={200}
           alt="Your new pediatric pal"
