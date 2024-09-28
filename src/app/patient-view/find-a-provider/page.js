@@ -69,8 +69,8 @@ export default function Home() {
 
         return (
             <PatientLayout>
-                <div className="flex items-center justify-center h-screen">
-                <Card className="w-80 h-2/3">
+                <div className="flex items-center justify-center h-dvh">
+                <Card className="w-80 max-h-fit">
                 <CardHeader className="flex items-center justify-center">
                     <CardTitle>Search Providers</CardTitle>
                 </CardHeader>
@@ -185,32 +185,32 @@ export default function Home() {
 
         function BrowseProviders() {
             return (
-                <>
-                <Button className="mb-6" onClick={() => handleDatingStatus("return")}>Return to Search</Button>
-                <div className="flex justify-center space-x-8">
-                    <div className="flex items-center">
-                        <Button onClick={() => handleDatingStatus("reject")} size="icon"><X /></Button>
-                    </div>
-                <Card className="w-80 min-h-2/3 max-h-fit">
-                    <CardHeader>
-                        <CardTitle>{provider.first_name} {provider.last_name}</CardTitle>
-                        <CardDescription>{provider.qualifications}, {provider.specialty}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <img className="pb-3" src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
-                        <CardDescription className="pb-2">{provider.accepted_insurance} - {provider.rates}</CardDescription>
-                        <p>{provider.short_description}</p>
-                    </CardContent>
-                    <CardFooter className="flex items-center justify-center">
-                        <Button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</Button>
-                    </CardFooter>
-                </Card>
-                    {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
-                    <div className="flex items-center">
-                    <Button onClick={() => handleDatingStatus("accept")} size="icon"><Heart /></Button>
+                <div className="flex flex-col items-center justify-center space-y-6">
+                    <Button className="max-w-fit" onClick={() => handleDatingStatus("return")}>Return to Search</Button>
+                    <div className="flex justify-center space-x-8">
+                        <div className="flex items-center">
+                            <Button onClick={() => handleDatingStatus("reject")} size="icon"><X /></Button>
+                        </div>
+                    <Card className="w-80 min-h-2/3 max-h-fit">
+                        <CardHeader>
+                            <CardTitle>{provider.first_name} {provider.last_name}</CardTitle>
+                            <CardDescription>{provider.qualifications}, {provider.specialty}</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <img className="pb-3" src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
+                            <CardDescription className="pb-2">{provider.accepted_insurance} - {provider.rates}</CardDescription>
+                            <p>{provider.short_description}</p>
+                        </CardContent>
+                        <CardFooter className="flex items-center justify-center">
+                            <Button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</Button>
+                        </CardFooter>
+                    </Card>
+                        {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
+                        <div className="flex items-center">
+                        <Button onClick={() => handleDatingStatus("accept")} size="icon"><Heart /></Button>
+                        </div>
                     </div>
                 </div>
-                </>
             );
         }
 
@@ -255,7 +255,7 @@ export default function Home() {
 
         return (
             <PatientLayout>
-                <div className="flex flex-col items-center justify-center min-h-screen">
+                <div className="flex flex-col items-center justify-center h-fill">
                     {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
                     {datingStatus === "accept" && <ProviderContact provider={provider} />}
                 </div>
