@@ -1,3 +1,5 @@
+import Footer from '../components/Footer';
+
 import localFont from "next/font/local";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
@@ -26,6 +28,7 @@ export default function RootLayout({ children }) {
       >
 
         {children}
+        <Footer/>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@
     flex 
     justify-end
 }
-.Nav > h1 {
+.Nav > * {
     @apply
         mx-3
 }
@@ -26,6 +26,20 @@
         justify-center
         items-center
         p-4
+        bg-Primary
+        rounded-lg
+}
+#Login {
+    @apply
+        px-4
         bg-Secondary
+        border-2
+        rounded-lg
+}
+#Signup {
+    @apply
+        px-4
+        bg-Secondary
+        border-2
         rounded-lg
 }

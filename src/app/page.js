@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import '../css/home.css';
 
 import Bear from '../../assets/home/Teddybear.png';
+
+// Todo
+// Sticky nav on scroll(?)
 
 export default function Home() {
 
@@ -12,12 +16,10 @@ export default function Home() {
   return (
     <div>
       <div className="Nav">
-        <h1>
-          <a href="/login">Login</a>
-        </h1>
-        <h1>
-          <a href="/signup">Signup</a>
-        </h1>
+        <Link href={'./login'} id="Login">Login
+        </Link>
+        <Link href={'./signup'}id="Signup">Signup
+        </Link>
       </div>
       <div className="Mission">
        <p>
@@ -27,7 +29,8 @@ export default function Home() {
         src={Bear}
         width={200}
         height={200}
-        alt="Your new pediatric pal" />
+        alt="Your new pediatric pal"
+        style={{marginLeft: 50}}/>
       </div>
     </div>
   );
