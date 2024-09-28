@@ -1,47 +1,81 @@
 'use client';
 import "./find-a-provider.css";
-import { useState } from "react";
+import data from '../../../data/providers.json';
+import Sidebar from "@/components/Sidebar"
+import { useState, useEffect } from "react";
 
 export default function Home() {
 
     const [currentPage, setCurrentPage] = useState("search");
-    const handlePageChange = (page) => { setCurrentPage(page) }
+    const handlePageChange = (page, filters = {}) => { setCurrentPage(page); setFilters(filters) }
+    const [filters, setFilters] = useState({});
 
-    function Search() {
+    function Search({ handlePageChange }) {
+
+        const [specialties, setSpecialties] = useState([]);
+        const [insurance, setInsurance] = useState([]);
+        const [locations, setLocations] = useState([]);
+        const [rates, setRates] = useState([]);
+
+        const [selectedSpecialty, setSelectedSpecialty] = useState("");
+        const [selectedInsurance, setSelectedInsurance] = useState("");
+        const [selectedLocation, setSelectedLocation] = useState("");
+        const [selectedRate, setSelectedRate] = useState("");
+
+        useEffect(() => {
+            const specialties = new Set(data.map(item => item.specialty));
+            setSpecialties([...specialties]);
+
+            const insurance = new Set(data.map(item => item.accepted_insurance));
+            setInsurance([...insurance]);
+            
+            const locations = new Set(data.map(item => item.location));
+            setLocations([...locations]);
+
+            const rates = new Set(data.map(item => item.rates));
+            setRates([...rates].sort((a, b) => a - b));
+                
+        }, []);
+
         return (
             <>
+                <Sidebar/>
                 <h1>What I want in a provider</h1>
                 <label htmlFor="specialty">Specialty</label>
-                <select name="specialty">
-                    <option value="neurology">neurology</option>
-                    <option value="dentistry">dentistry</option>
-                    <option value="pediatrics">pediatrics</option>
+                <select name="specialty" value={selectedSpecialty} onChange={(e) => setSelectedSpecialty(e.target.value)}>
+                    <option value="">Select a specialty</option>
+                    {specialties.map(specialty => (
+                        <option key={specialty} value={specialty}>{specialty}</option>
+                    ))}
                 </select>
                 <label htmlFor="insurance">Insurance</label>
-                <select name="insurance">
-                    <option value="medicare">medicare</option>
-                    <option value="crossycross">crossycross</option>
-                    <option value="employer">employer</option>
+                <select name="insurance" value={selectedInsurance} onChange={(e) => setSelectedInsurance(e.target.value)}>
+                    <option value="">Whats your insurance</option>
+                    {insurance.map(insurance => (
+                        <option key={insurance} value={insurance}>{insurance}</option>
+                    ))}
                 </select>
                 <label htmlFor="location">Location</label>
-                <select name="location">
-                    <option value="orlando">orlando</option>
-                    <option value="miami">miami</option>
-                    <option value="fort myers">fort myers</option>
+                <select name="location" value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+                    <option value="">Where you at</option>
+                    {locations.map(location => (
+                        <option key={location} value={location}>{location}</option>
+                    ))}
                 </select>
                 <label htmlFor="rate">Rate</label>
-                <select name="rate">
-                    <option value="$">$</option>
-                    <option value="$$">$$</option>
-                    <option value="$$$">$$$</option>
+                <select name="rate" value={selectedRate} onChange={(e) => setSelectedRate(e.target.value)}>
+                    <option value="">How much we talkin bout here</option>
+                    {rates.map(rate => (
+                        <option key={rate} value={rate}>{rate}</option>
+                    ))}
                 </select>
-                <button onClick={() => handlePageChange("dating")}>Set Preferences</button>
+                <button onClick={() => handlePageChange("dating", {specialty: selectedSpecialty, insurance: selectedInsurance, location: selectedLocation, rate: selectedRate})}>Set Preferences</button>
             </>
         );
     }
 
-    function Dating() {
-
+    function Dating({ handlePageChange, filters }) {
+        /*
         const provider = {
             first_name: "Betty",
             last_name:"Boop",
@@ -56,7 +90,25 @@ export default function Home() {
             short_description: "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
             long_description: "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
         };
-        
+        */
+       
+        const matchedDates = data.filter(provider => {
+            return (
+                (filters.specialty ? provider.specialty === filters.specialty : true) &&
+                (filters.insurance ? provider.accepted_insurance === filters.insurance : true) &&
+                (filters.location ? provider.location === filters.location : true) &&
+                (filters.rate ? provider.rates === parseFloat(filters.rate) : true)
+            );
+        });
+
+        const [currentDate, setCurrentDate] = useState(0);
+
+        if (matchedDates.length == 0) {
+            alert("YOU'RE TOO PICKY");
+            handlePageChange("search");
+        }
+
+        const provider = matchedDates[currentDate]
 
         const [datingStatus, setDatingStatus] = useState("browse")
         const handleDatingStatus = (datingStatus) => {
@@ -64,10 +116,18 @@ export default function Home() {
                 setDatingStatus("moreInfo")
             }
             else if (datingStatus == "reject") {
-                // load another provider
+                if (currentDate < matchedDates.length - 1) {
+                    setCurrentDate(currentDate + 1)
+                    setDatingStatus("browse")
+                }
+                else {
+                    alert("out of options")
+                    handlePageChange("search")
+                }
             }
             else {
                 // load a messaging window with the current provider
+                alert("hooray!")
             }
         }
         return (
@@ -96,8 +156,8 @@ export default function Home() {
 
   return (
     <>
-    {currentPage === "search" && <Search />}
-    {currentPage === "dating" && <Dating />}
+    {currentPage === "search" && <Search handlePageChange={handlePageChange} />}
+    {currentPage === "dating" && <Dating handlePageChange={handlePageChange} filters={filters} />}
     </>
   );
 }
