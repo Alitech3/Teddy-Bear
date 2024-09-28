@@ -31,7 +31,7 @@ export default function Home() {
         <div className='flex flex-col text-left text-4x1'>
           <h1 style={{fontSize: "3em", color: "white"}} className='font-bold text-4xl'>Welcome to <b style={{fontSize: "1.5em"}}>Meddy!</b></h1>
           <p style={{fontSize: "1.5em", paddingTop: "20px", color: "white"}}  className='text-2x1'>
-            Meddy aims to standardize patient-provider medication information
+            The solution to healthcare miscommunication...
           </p>
         </div>
         <Image

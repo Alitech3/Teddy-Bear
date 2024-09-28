@@ -7,8 +7,8 @@ export default function Home() {
 
   return (
     <div className='flex flex-row '>
-      <ProviderSidebar/>
-      <div className="flex flex-col gap-10 h-screen overflow-auto pt-5">
+      <ProviderSidebar className="h-full"/>
+      <div className="flex w-fit flex-col gap-10 h-screen overflow-auto pt-5">
         {data.map((d, index) => ( index <= 10 &&
           <PatientCard key={index} patient={d} />
         ))}
