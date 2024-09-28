@@ -31,11 +31,11 @@ export default function Home() {
         <p>
           Meddy aims to standardize patient-provider medication information
         </p>
-        <Image 
+        {/* <Image 
           src={Hat}
           width={110}
           height={110}
-          id='Hat'/>
+          id='Hat'/> */}
         <Image
           src={Logo}
           width={200}

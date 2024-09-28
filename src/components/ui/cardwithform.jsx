@@ -1,8 +1,8 @@
-import * as React from "react"
-import { useState } from "react"
+import * as React from 'react';
+import { useState } from 'react';
 
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -10,21 +10,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from '@/components/ui/select';
 
 //Todo:
 // drop down to distinguish between provider and paitent or we need sample data that is linked to each case to showcase
 
-export function CardWithForm({router, Title = "Sign-Up", Description = "Create an account", input1="Username",input2="Password", button1 = "Cancel", button2 = "Sign-Up"}) {
+export function CardWithForm({router, Title = 'Sign-Up', Description = 'Create an account', input1='Username',input2='Password', button1 = 'Cancel', button2 = 'Sign-Up'}) {
   const [un, setUN] = useState('');
   const [pw, setPW] = useState('');
 
@@ -49,11 +49,13 @@ export function CardWithForm({router, Title = "Sign-Up", Description = "Create a
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="outline">Cancel</Button>
+        <Button variant="outline" onClick={() => {
+          router.back();
+        }}>Cancel</Button>
         <Button onClick={() => {
           router.push('/patient-view');
-      }}>Sign-Up</Button>
+        }}>{Title}</Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
