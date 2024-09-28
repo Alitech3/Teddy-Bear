@@ -24,7 +24,7 @@ import {
 //Todo:
 // drop down to distinguish between provider and paitent or we need sample data that is linked to each case to showcase
 
-export function CardWithForm({router},{Title = "Sign-Up", Description = "Create an account", input1="Username",input2="Password", button1 = "Cancel", button2 = "Sign-Up"}) {
+export function CardWithForm({router, Title = "Sign-Up", Description = "Create an account", input1="Username",input2="Password", button1 = "Cancel", button2 = "Sign-Up"}) {
   const [un, setUN] = useState('');
   const [pw, setPW] = useState('');
 
