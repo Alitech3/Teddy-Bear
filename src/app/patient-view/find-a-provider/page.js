@@ -1,8 +1,8 @@
 'use client';
 import "./find-a-provider.css";
 import data from '../../../../data/providers.json';
-import Sidebar from "@/components/Sidebar"
 import { useState, useEffect } from "react";
+import PatientLayout from "@/components/PatientLayout";
 
 export default function Home() {
 
@@ -38,8 +38,10 @@ export default function Home() {
         }, []);
 
         return (
+            <PatientLayout>
+
+            
             <div id="Container">
-                <Sidebar />
                 <h1>What I want in a provider</h1>
                 <label htmlFor="specialty">Specialty</label>
                 <select name="specialty" value={selectedSpecialty} onChange={(e) => setSelectedSpecialty(e.target.value)}>
@@ -71,6 +73,7 @@ export default function Home() {
                 </select>
                 <button onClick={() => handlePageChange("dating", {specialty: selectedSpecialty, insurance: selectedInsurance, location: selectedLocation, rate: selectedRate})}>Set Preferences</button>
             </div>
+            </PatientLayout>
         );
     }
 

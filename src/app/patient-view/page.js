@@ -1,9 +1,9 @@
-import Sidebar from "@/components/Sidebar";
+import PatientSidebar from "@/components/PatientSidebar";
 
 export default function Home() {
   return (
     <>
-      <Sidebar/>
+      <PatientSidebar/>
       <h2>Patient View</h2>
     </>
   );

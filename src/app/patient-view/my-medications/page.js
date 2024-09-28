@@ -6,7 +6,6 @@ import MedicationCard from '@/components/MedicationCard';
 import PageTitle from '@/components/PageTitle';
 
 export default function MyMedications({ patient_id }) {
-  const prescription = prescriptionData[0].medications
  
   return (
       <>
@@ -23,7 +22,7 @@ export default function MyMedications({ patient_id }) {
             <p>No meds found</p>
           )} */}
           <div className='flex flex-col gap-5'>
-            {prescription.map((medication, index) => (
+            {prescriptionData[0].medications.map((medication, index) => (
               <MedicationCard key={index} index={index} medication={medication}/>
             ))}
           </div>

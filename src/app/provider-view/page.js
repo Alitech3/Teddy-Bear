@@ -1,19 +1,19 @@
 
 import data from '../../../data/patients.json';
 import PatientCard from '@/components/PatientCard';
-import ProviderHeader from '@/components/ProviderHeader';
+import ProviderSidebar from '@/components/ProviderSidebar';
 
 export default function Home() {
 
   return (
-    <>
-      <ProviderHeader />
-      <div className="flex flex-row flex-wrap gap-10">
+    <div className='flex flex-row '>
+      <ProviderSidebar/>
+      <div className="flex flex-col gap-10 h-screen overflow-auto pt-5">
         {data.map((d, index) => ( index <= 10 &&
           <PatientCard key={index} patient={d} />
         ))}
       </div>
-    </>
+    </div>
 
   );
 }
