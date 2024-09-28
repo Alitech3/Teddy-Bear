@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: 'Teddy Bear',
+  title: 'Meddy',
   description: 'Your HealthCare provider companion',
 };
 
@@ -26,7 +26,6 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Logo/>
         {children}
-        <Footer/>
       </body>
     </html>
   );

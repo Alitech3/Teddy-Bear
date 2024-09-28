@@ -10,6 +10,7 @@ export default function MyMedications({ patient_id }) {
   return (
       <>
           <PatientLayout>
+            <div className="h-screen overflow-y-auto">
           <PageTitle text={"My Medications"}/>
           {/* {myMeds.length > 0 ? (
             <ul>
@@ -29,6 +30,7 @@ export default function MyMedications({ patient_id }) {
           
 
           <Link className='bg-' href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
+          </div>
           </PatientLayout>
       </>
       

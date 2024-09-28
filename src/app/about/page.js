@@ -1,24 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import './about.css';
+import Footer from '@/components/Footer';
 
 import Bear from '../../../assets/home/Logo.png';
 
 export default function Home() {
   return(
-    <main>
+    <div className="relative flex flex-col w-full overflow-y-auto">
+    <main className="h-screen text-Text flex p-5 w-full items-center justify-center text-center">
       <div>
-        <div id='Logo'>
+        <div id='Logo' className="flex justify-center items-center">
           <Image src={Bear}
             width={100}
             height={100}/>
         </div>
-        <h1>Meddy is the future.</h1>
-        <h2>A hypothetical one at least.</h2>
-        <p>
+        <h1 className="text-6xl font-bold tracking-widest my-10">Meddy is the future.</h1>
+        <h2 className="text-3xl font-medium tracking-wide my-10">A hypothetical one at least.</h2>
+        <p className="text-3xl my-10">
             Meddy was created for <Link href="https://www.shellhacks.net/" target="_blank">ShellHacks 2024</Link> as a mock up for an all-in-one healthcare solution by:<br/> <Link href="https://github.com/Alitech3" target="_blank"><i>Ali Chapman</i></Link>, <Link href="https://github.com/myr124" target="_blank"><i>Eric George</i></Link>, <Link href="https://github.com/aidenletourneau" target="_blank"><i>Aiden Letourneau</i></Link>, & <Link href="https://github.com/same-difference" target="_blank"><i>Dianneth Murillo</i></Link>.
         </p>
       </div>
     </main>
+      <Footer />
+      </div>
   );
 }
