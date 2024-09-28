@@ -1,4 +1,6 @@
 import * as React from "react"
+import { useState } from "react"
+
 
 import { Button } from "@/components/ui/button"
 import {
@@ -19,7 +21,13 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export function CardWithForm() {
+//Todo:
+// drop down to distinguish between provider and paitent or we need sample data that is linked to each case to showcase
+
+export function CardWithForm({router}) {
+  const [un, setUN] = useState('');
+  const [pw, setPW] = useState('');
+
   return (
     <Card className="w-[350px]">
       <CardHeader>
@@ -31,19 +39,20 @@ export function CardWithForm() {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="username">Username</Label>
-              <Input id="name" placeholder="Username" />
+              <Input id="name" placeholder="Username" onChange={e=> setUN(e)} />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="password">Password</Label>
-              <Input id="name" placeholder="Password" />
-             
+              <Input id="pasw" placeholder="Password" onChange={e => setPW(e)}/>
             </div>
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
-        <Button>Sign-Up</Button>
+        <Button onClick={() => {
+          router.push('/patient-view');
+      }}>Sign-Up</Button>
       </CardFooter>
     </Card>
   )
