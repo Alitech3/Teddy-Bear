@@ -3,6 +3,7 @@ import data from '../../../../data/patients.json';
 import prescriptionData from '../../../../data/prescriptions.json';
 import PatientLayout from "@/components/PatientLayout";
 import MedicationCard from '@/components/MedicationCard';
+import PageTitle from '@/components/PageTitle';
 
 export default function MyMedications({ patient_id }) {
   const prescription = prescriptionData[0].medications
@@ -10,7 +11,7 @@ export default function MyMedications({ patient_id }) {
   return (
       <>
           <PatientLayout>
-          <h2>My Medications</h2>
+          <PageTitle text={"My Medications"}/>
           {/* {myMeds.length > 0 ? (
             <ul>
               {Object.keys(myMeds[0]).filter((key, index) => index !== 0 && myMeds[0][key]).map((med, index) => (
@@ -21,10 +22,12 @@ export default function MyMedications({ patient_id }) {
           ) : (
             <p>No meds found</p>
           )} */}
+          <div className='flex flex-col gap-5'>
+            {prescription.map((medication, index) => (
+              <MedicationCard key={index} index={index} medication={medication}/>
+            ))}
+          </div>
           
-          {prescription.map((medication, index) => (
-            <MedicationCard key={index} index={index} medication={medication}/>
-          ))}
 
           <Link href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
           </PatientLayout>
