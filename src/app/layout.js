@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: 'Teddy Bear',
+  title: 'Meddy',
   description: 'Your HealthCare provider companion',
 };
 
