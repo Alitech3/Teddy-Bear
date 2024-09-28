@@ -5,7 +5,7 @@
 #Container {
     @apply
         flex
-        h-full
+
 }
 
 @layer utilities {
