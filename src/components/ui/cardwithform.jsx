@@ -37,7 +37,7 @@ export function CardWithForm({router, Title = 'Sign-Up', Description = 'Create a
       <Select>
         <Label className='ml-6'>Sign in as:</Label>
         <SelectTrigger className="w-5/6 mx-6 mb-4">
-          <SelectValue placeholder="Account Type" class=''/>
+          <SelectValue placeholder="Account Type"/>
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="patient">Patient</SelectItem>
@@ -49,11 +49,11 @@ export function CardWithForm({router, Title = 'Sign-Up', Description = 'Create a
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="label1">Username</Label>
-              <Input id="inp1" placeholder={input1}onChange={e=> setUN(e)} />
+              <Input id="inp1" placeholder={input1} onChange={e=> setUN(e)}/>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="label2">Password</Label>
-              <Input id="inp2" placeholder={input2} onChange={e => setPW(e)}/>
+              <Input id="inp2" placeholder={input2} type='password' onChange={e => setPW(e)}/>
             </div>
           </div>
         </form>
