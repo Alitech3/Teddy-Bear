@@ -12,11 +12,11 @@ import {
 
 export default function PatientCard({patient, index}) {
   return (
-    <Card className="w-full" key={index}>
-      <CardTitle>{patient.first_name + " " + patient.last_name}</CardTitle>
-      <CardContent className="flex flex-row">
+    <Card className="h-32 w-full" key={index}>
+      <CardTitle className="p-3">{patient.first_name + " " + patient.last_name}</CardTitle>
+      <CardContent className="flex flex-row gap-4 h-24">
         <img src={patient.image}></img>
-        <CardDescription>{patient.treat_notes}</CardDescription>
+        <CardDescription className=" overflow-auto">{patient.treat_notes}</CardDescription>
       </CardContent>
     </Card>
   )
