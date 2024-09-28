@@ -22,13 +22,13 @@ export default function MyMedications({ patient_id }) {
             <p>No meds found</p>
           )} */}
           <div className='flex flex-col gap-5'>
-            {prescriptionData[0].medications.map((medication, index) => (
+            {prescriptionData[2].medications.map((medication, index) => (
               <MedicationCard key={index} index={index} medication={medication}/>
             ))}
           </div>
           
 
-          <Link href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
+          <Link className='bg-' href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
           </PatientLayout>
       </>
       

@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Footer() {
   return(
-    <footer className="bg-gray-800 text-white py-6 h-24">
-      <div className="container mx-auto text-center">
-        <div className="flex justify-center space-x-6 mb-4">
+    <footer className="bg-gray-800 text-white h-20 ">
+      <div className="container mx-auto text-center flex flex-col gap-2 pt-3">
+        <div className="flex justify-center space-x-6 my-auto">
           <Link href="/" className="hover:text-gray-400">Home</Link>
           <Link href="/about" className="hover:text-gray-400">About</Link>
           <Link href="/contact" className="hover:text-gray-400">Contact</Link>

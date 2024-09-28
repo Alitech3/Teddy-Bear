@@ -9,6 +9,7 @@ body {
         bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900
 		h-screen
 		w-screen
+		text-Text
 }
 ::-webkit-scrollbar {
 	@apply
