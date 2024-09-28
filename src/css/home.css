@@ -4,84 +4,48 @@
 
 @media (max-width: 780px) {
     .Mission {
-        @apply
-            overflow-y-auto
+        @apply overflow-y-auto
     }
 }
+
 .LandingContainer {
-    @apply
-        bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900
-        overflow-y-hidden
-    }
+    @apply bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900 overflow-y-hidden min-h-screen max-h-fit
+}
+
 .Branding {
-    @apply
-        flex
-        justify-center
-        items-center
-        w-11/12
+    @apply flex justify-center items-center w-11/12
 }
+
 .Nav {
-    @apply
-    flex
-    justify-end
-    items-center
+    @apply flex justify-end items-center
 }
-.Branding > h1 {
-    @apply
-        text-center
-        m-0
-        font-bold
-        text-Text
+
+.Branding>h1 {
+    @apply text-center m-0 font-bold text-Text
 }
-.Nav > * {
-    @apply
-        mx-3
-        mt-4
-        mr-10
+
+.Nav>* {
+    @apply mx-3 mt-4 mr-10
 }
+
 .Mission {
-    @apply
-        flex
-        justify-center
-        items-center
-        h-screen
+    @apply flex justify-center items-center h-screen
 }
-.Mission > p {
-    @apply
-        w-1/3
-        text-2xl
-        flex
-        justify-center
-        justify-around
-        items-center
-        text-Text
-        font-semibold
+
+.Mission>p {
+    @apply w-1/3 text-2xl flex justify-center justify-around items-center text-Text font-semibold
 }
+
 #Login {
     font-size: larger;
-    @apply
-    hover:text-gray-400
-        px-2
-        py-1
-        font-bold
-        
-        h-1/2
-        text-Text
+    @apply hover:text-gray-400 px-2 py-1 font-bold h-1/2 text-Text
 }
+
 #Signup {
     font-size: larger;
-    @apply
-    hover:text-gray-400
-    px-2
-    py-1
-    font-bold
-    h-1/2
-    text-Text
+    @apply hover:text-gray-400 px-2 py-1 font-bold h-1/2 text-Text
 }
+
 #Hat {
-    @apply
-        absolute
-        right-[413px]
-        bottom-[360px]
-        rotate-[20deg]
+    @apply absolute right-[413px] bottom-[360px] rotate-[20deg]
 }
