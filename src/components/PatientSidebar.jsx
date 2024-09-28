@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const PatientSidebar = () => {
   return (
-    <div className="bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900 top-0 left-0 h-screen w-96 bg-Secondary text-white flex flex-col p-4 gap-4">
+    <div className="bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900 top-0 left-0 h-screen w-52 bg-Secondary text-white flex flex-col p-4 gap-4">
       <div>
         <Link href="/patient-view/my-medications">
           <h3 className="hover:text-gray-400 cursor-pointer">My Medications</h3>
