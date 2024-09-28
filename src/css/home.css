@@ -6,7 +6,18 @@
     @apply
     flex 
     justify-end
+    bg-Secondary
+    items-center
 }
+.Nav > h1 {
+    @apply
+        w-4/5
+        text-center
+        text-2xl
+        m-2
+        font-bold
+}
+
 .Nav > * {
     @apply
         mx-3
@@ -32,14 +43,18 @@
 #Login {
     @apply
         px-4
-        bg-Secondary
+        py-1
+        bg-Accent
         border-2
         rounded-lg
+        h-1/2
 }
 #Signup {
     @apply
         px-4
-        bg-Secondary
+        py-1
+        bg-Accent
         border-2
         rounded-lg
+        h-1/2
 }
