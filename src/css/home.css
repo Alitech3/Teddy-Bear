@@ -47,7 +47,7 @@
 .Mission > p {
     @apply
         w-1/2
-        text-xl
+        text-4xl
         flex
         justify-center
         items-center
