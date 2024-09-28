@@ -2,7 +2,6 @@
 import { CardWithForm } from "@/components/ui/cardwithform";
 import { useRouter } from 'next/navigation';
 
-
 export default function Home() {
   const router = useRouter();
   return (
