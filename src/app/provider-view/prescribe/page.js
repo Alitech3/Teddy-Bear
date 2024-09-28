@@ -20,16 +20,18 @@ const response = await openai.chat.completions.create({
     model: 'gpt-4o'
 });
 
-console.log(response.data.choices[0].message.content)
+const message = response.choices[0].message.content
 
 const page = () => {
     const [visible, setVisible] = useState(0)
     const [text, setText] = useState("")
     const clickHandler = ()=>{
         setVisible(100);
+        setText(message)
     }
     const resetAlert = ()=>{
         setVisible(0);
+        
     }
   return (
     <div className='grid grid-rows-3'>
@@ -42,7 +44,7 @@ const page = () => {
     </Alert>
     <Button onClick={clickHandler}>Alert!</Button>
     <Input className = "" placeholder="Type in prescriptions"></Input>
-    <div>{text}</div>
+    <div>{text} + Hallo</div>
     </div>
     
   )
