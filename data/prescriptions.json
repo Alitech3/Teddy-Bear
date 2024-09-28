@@ -1,40 +1,319 @@
 [
-    {
-      "id": 1,
-      "medications": [
-        {"brand_name":"Motrin","generic_name":"diphenhydramine","dosage":68,"price":349.28,"form_of_ingestion":"pill"},
-        {"brand_name":"Aleve","generic_name":"acetaminophen","dosage":0,"price":288.2,"form_of_ingestion":"pill"}
-      ]
-    },
-    {
-      "id": 2,
-      "medications": [
-        {"brand_name":"Motrin","generic_name":"aspirin","dosage":63,"price":72.93,"form_of_ingestion":"liquid"},
-        {"brand_name":"Claritin","generic_name":"aspirin","dosage":32,"price":127.07,"form_of_ingestion":"liquid"},
-        {"brand_name":"Advil","generic_name":"aspirin","dosage":44,"price":258.87,"form_of_ingestion":"pill"}
-      ]
-    },
-    {
-      "id": 3,
-      "medications": [
-        {"brand_name":"Benadryl","generic_name":"acetaminophen","dosage":34,"price":321.13,"form_of_ingestion":"pill"},
-        {"brand_name":"Aleve","generic_name":"diphenhydramine","dosage":56,"price":318.14,"form_of_ingestion":"pill"}
-      ]
-    },
-    {
-      "id": 4,
-      "medications": [
-        {"brand_name":"Tylenol","generic_name":"aspirin","dosage":9,"price":416.8,"form_of_ingestion":"liquid"},
-        {"brand_name":"Benadryl","generic_name":"ibuprofen","dosage":11,"price":200.18,"form_of_ingestion":"pill"}
-      ]
-    },
-    {
-      "id": 5,
-      "medications": [
-        {"brand_name":"Aleve","generic_name":"ibuprofen","dosage":49,"price":430.83,"form_of_ingestion":"patch"},
-        {"brand_name":"Benadryl","generic_name":"acetaminophen","dosage":86,"price":163.72,"form_of_ingestion":"liquid"},
-        {"brand_name":"Claritin","generic_name":"ibuprofen","dosage":31,"price":32.08,"form_of_ingestion":"injection"}
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "medications": [
+      {
+        "brand_name": "Lipitor",
+        "generic_name": "atorvastatin",
+        "dosage": "20 mg",
+        "price": "$12.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Synthroid",
+        "generic_name": "levothyroxine",
+        "dosage": "50 mcg",
+        "price": "$5.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "medications": [
+      {
+        "brand_name": "Prinivil",
+        "generic_name": "lisinopril",
+        "dosage": "10 mg",
+        "price": "$8.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "medications": [
+      {
+        "brand_name": "Glucophage",
+        "generic_name": "metformin",
+        "dosage": "1000 mg",
+        "price": "$4.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Norvasc",
+        "generic_name": "amlodipine",
+        "dosage": "5 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Proventil",
+        "generic_name": "albuterol",
+        "dosage": "90 mcg",
+        "price": "$44.85",
+        "form_of_ingestion": "inhaler"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "medications": [
+      {
+        "brand_name": "Prilosec",
+        "generic_name": "omeprazole",
+        "dosage": "20 mg",
+        "price": "$9.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "medications": [
+      {
+        "brand_name": "Cozaar",
+        "generic_name": "losartan",
+        "dosage": "50 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "medications": [
+      {
+        "brand_name": "Zithromax",
+        "generic_name": "azithromycin",
+        "dosage": "500 mg",
+        "price": "$20.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Flonase",
+        "generic_name": "fluticasone",
+        "dosage": "50 mcg",
+        "price": "$15.00",
+        "form_of_ingestion": "nasal spray"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "medications": [
+      {
+        "brand_name": "Crestor",
+        "generic_name": "rosuvastatin",
+        "dosage": "20 mg",
+        "price": "$15.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Zoloft",
+        "generic_name": "sertraline",
+        "dosage": "50 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "medications": [
+      {
+        "brand_name": "Lasix",
+        "generic_name": "furosemide",
+        "dosage": "40 mg",
+        "price": "$7.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "medications": [
+      {
+        "brand_name": "Plavix",
+        "generic_name": "clopidogrel",
+        "dosage": "75 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "medications": [
+      {
+        "brand_name": "Lexapro",
+        "generic_name": "escitalopram",
+        "dosage": "10 mg",
+        "price": "$12.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Advair",
+        "generic_name": "fluticasone/salmeterol",
+        "dosage": "100 mcg",
+        "price": "$45.00",
+        "form_of_ingestion": "inhaler"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "medications": [
+      {
+        "brand_name": "Xanax",
+        "generic_name": "alprazolam",
+        "dosage": "1 mg",
+        "price": "$4.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "medications": [
+      {
+        "brand_name": "Glucotrol",
+        "generic_name": "glipizide",
+        "dosage": "10 mg",
+        "price": "$8.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "medications": [
+      {
+        "brand_name": "Lantus",
+        "generic_name": "insulin glargine",
+        "dosage": "100 units/mL",
+        "price": "$300.00",
+        "form_of_ingestion": "injection"
+      },
+      {
+        "brand_name": "Vicodin",
+        "generic_name": "hydrocodone/acetaminophen",
+        "dosage": "5 mg",
+        "price": "$20.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "medications": [
+      {
+        "brand_name": "Ativan",
+        "generic_name": "lorazepam",
+        "dosage": "1 mg",
+        "price": "$5.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Singulair",
+        "generic_name": "montelukast",
+        "dosage": "10 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "medications": [
+      {
+        "brand_name": "Toprol XL",
+        "generic_name": "metoprolol succinate",
+        "dosage": "50 mg",
+        "price": "$15.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "medications": [
+      {
+        "brand_name": "Nexium",
+        "generic_name": "esomeprazole",
+        "dosage": "40 mg",
+        "price": "$15.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "medications": [
+      {
+        "brand_name": "Flexeril",
+        "generic_name": "cyclobenzaprine",
+        "dosage": "10 mg",
+        "price": "$9.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Celexa",
+        "generic_name": "citalopram",
+        "dosage": "20 mg",
+        "price": "$10.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "medications": [
+      {
+        "brand_name": "Imdur",
+        "generic_name": "isosorbide mononitrate",
+        "dosage": "30 mg",
+        "price": "$12.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "medications": [
+      {
+        "brand_name": "Prozac",
+        "generic_name": "fluoxetine",
+        "dosage": "20 mg",
+        "price": "$15.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Diflucan",
+        "generic_name": "fluconazole",
+        "dosage": "150 mg",
+        "price": "$20.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "medications": [
+      {
+        "brand_name": "Zetia",
+        "generic_name": "ezetimibe",
+        "dosage": "10 mg",
+        "price": "$30.00",
+        "form_of_ingestion": "pill"
+      },
+      {
+        "brand_name": "Allegra",
+        "generic_name": "fexofenadine",
+        "dosage": "180 mg",
+        "price": "$25.00",
+        "form_of_ingestion": "pill"
+      }
+    ]
+  }
+]
