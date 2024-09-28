@@ -7,7 +7,7 @@ import OpenAI from 'openai';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.NEXT_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
