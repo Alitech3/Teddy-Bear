@@ -1,8 +1,12 @@
 'use client';
+import Sidebar from "@/components/Sidebar"
+
+
 import "./find-a-provider.css";
 import data from '../../../data/providers.json';
 import Sidebar from "@/components/Sidebar"
 import { useState, useEffect } from "react";
+
 
 export default function Home() {
 

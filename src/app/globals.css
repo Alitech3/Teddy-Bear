@@ -9,9 +9,6 @@ body {
 		bg-Background
 		h-screen
 		w-screen
-		flex
-		justify-center
-		items-center
 }
 ::-webkit-scrollbar {
 	@apply
