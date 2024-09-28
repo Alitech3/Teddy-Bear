@@ -37,6 +37,7 @@
 .Nav > * {
     @apply
         mx-3
+        mt-4
         mr-10
 }
 .Mission {

@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <div className='LandingContainer'>
       <div className="Nav">
-        <div className='Branding'>
-          <Image
+        <div className='Branding flex flex-row items-center absolute top-4 left-1/2 transform -translate-x-1/2'>
+          {/* <Image
             src={Logo}
             width={50}
-            height={50}/>
+            height={50}/> */}
           <h1>
             Meddy
           </h1>
