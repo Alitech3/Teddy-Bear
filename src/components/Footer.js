@@ -1,18 +1,17 @@
 export default function Footer() {
     return(
-        <div>
-            <p>
-                Terms & Conditions
-            </p>
-            <p>
-                [Dummy Office location]
-            </p>
-            <p>
-                support Hotline
-            </p>
-            <p>
-                generic disclaimer so you cant sue
-            </p>
-        </div>
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container mx-auto text-center">
+                <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-gray-400">Home</a>
+                <a href="#" class="hover:text-gray-400">About</a>
+                <a href="#" class="hover:text-gray-400">Services</a>
+                <a href="#" class="hover:text-gray-400">Contact</a>
+                </div>
+                <p class="text-sm">
+                &copy; 2024 Your Company Name. All rights reserved.
+                </p>
+            </div>
+        </footer>
     )
 }
