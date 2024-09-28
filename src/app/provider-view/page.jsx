@@ -1,14 +1,19 @@
-import data from '../../../data/patients.json';
+import data from '../../../data/patients.json'
+import Header from '@/components/Header'
+import PatientCard from '@/components/PatientCard'
 
 export default function Home() {
 
-  data.forEach(d => {
-    console.log(d)
-  })
-
   return (
     <>
-      <h1>Provider view</h1>
+      <Header />
+      <h1>Your Patients</h1>
+      <div className="flex flex-row flex-wrap gap-10">
+        {data.map((d, index) => (
+          <PatientCard key={index} patient={d} />
+        ))}
+      </div>
     </>
+
   )
 }
