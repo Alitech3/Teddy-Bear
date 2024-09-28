@@ -13,15 +13,6 @@ export default function Home() {
   return (
     <div className='LandingContainer'>
       <div className="Nav">
-        <div className='Branding flex flex-row items-center absolute top-2 left-15 transform -translate-x-1/2'>
-          <Image
-            src={Logo}
-            width={50}
-            height={50}/>
-          <h1 style={{fontSize: "1.3em"}}>
-            Meddy
-          </h1>
-        </div>
         <Link href={'./login'} id="Login">Login
         </Link>
         <Link href={'./signup'} id="Signup">Signup
