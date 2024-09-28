@@ -10,7 +10,7 @@ export default function Footer() {
                 <Link href="/contact" className="hover:text-gray-400">Contact</Link>
                 </div>
                 <p className="text-sm">
-                &copy; 2024 Teddy Bear LLC. All rights reserved.
+                &copy; 2024 Meddy LLC. All rights reserved.
         </p>
       </div>
     </footer>
