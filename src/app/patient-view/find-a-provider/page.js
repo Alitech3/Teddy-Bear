@@ -1,5 +1,5 @@
 'use client';
-import "./find-a-provider.css";
+// import "./find-a-provider.css";
 import data from '../../../../data/providers.json';
 import { useState, useEffect } from "react";
 import PatientLayout from "@/components/PatientLayout";
@@ -32,8 +32,27 @@ export default function Home() {
             const locations = new Set(data.map(item => item.location));
             setLocations([...locations]);
 
-            const rates = new Set(data.map(item => item.rates));
-            setRates([...rates].sort((a, b) => a - b));
+            // Map rates to predefined categories
+            const rateCategories = {
+                "<$50": [],
+                "$50-100": [],
+                "$100-200": [],
+                ">$200": []
+            };
+            data.forEach(item => {
+                const rate = parseFloat(item.rates.replace(/[^0-9.-]+/g, "")); // Parse numeric value from rate string
+                if (rate < 50) {
+                    rateCategories["<$50"].push(item.rates);
+                } else if (rate >= 50 && rate <= 100) {
+                    rateCategories["$50-100"].push(item.rates);
+                } else if (rate > 100 && rate <= 200) {
+                    rateCategories["$100-200"].push(item.rates);
+                } else {
+                    rateCategories[">$200"].push(item.rates);
+                }
+            });
+
+            setRates(Object.keys(rateCategories));
                 
         }, []);
 
@@ -52,21 +71,21 @@ export default function Home() {
                 </select>
                 <label htmlFor="insurance">Insurance</label>
                 <select name="insurance" value={selectedInsurance} onChange={(e) => setSelectedInsurance(e.target.value)}>
-                    <option value="">Whats your insurance</option>
+                    <option value="">What's your insurance?</option>
                     {insurance.map(insurance => (
                         <option key={insurance} value={insurance}>{insurance}</option>
                     ))}
                 </select>
                 <label htmlFor="location">Location</label>
                 <select name="location" value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
-                    <option value="">Where you at</option>
+                    <option value="">Where you at?</option>
                     {locations.map(location => (
                         <option key={location} value={location}>{location}</option>
                     ))}
                 </select>
                 <label htmlFor="rate">Rate</label>
                 <select name="rate" value={selectedRate} onChange={(e) => setSelectedRate(e.target.value)}>
-                    <option value="">How much we talkin bout here</option>
+                    <option value="">How much are we talkin' about?</option>
                     {rates.map(rate => (
                         <option key={rate} value={rate}>{rate}</option>
                     ))}
@@ -78,63 +97,58 @@ export default function Home() {
     }
 
     function Dating({ handlePageChange, filters }) {
-        /*
-        const provider = {
-            first_name: "Betty",
-            last_name:"Boop",
-            image:"https://media.discordapp.net/attachments/1288011053891846164/1289465524270661632/IMG_0837.jpg?ex=66f8ebda&is=66f79a5a&hm=1daf97f3dd43dffeb0e05bce409df9b752803554f30b765b27dc01343f359ddf&=&format=webp&width=458&height=611",
-            specialty:"Therapy",
-            qualifications:"PhD",
-            phone_number:"508-788-0445",
-            email:"betty.boop@email.co",
-            location:"Orlando",
-            accepted_insurance:"Humana",
-            rates:479.08,
-            short_description: "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
-            long_description: "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
-        };
-        */
        
         const matchedDates = data.filter(provider => {
+            const providerRate = parseFloat(provider.rates.replace(/[^0-9.-]+/g, ""));
+            let rateFilter = true;
+
+            if (filters.rate) {
+                if (filters.rate === "<$50") {
+                    rateFilter = providerRate < 50;
+                } else if (filters.rate === "$50-100") {
+                    rateFilter = providerRate >= 50 && providerRate <= 100;
+                } else if (filters.rate === "$100-200") {
+                    rateFilter = providerRate > 100 && providerRate <= 200;
+                } else if (filters.rate === ">$200") {
+                    rateFilter = providerRate > 200;
+                }
+            }
+
             return (
                 (filters.specialty ? provider.specialty === filters.specialty : true) &&
                 (filters.insurance ? provider.accepted_insurance === filters.insurance : true) &&
                 (filters.location ? provider.location === filters.location : true) &&
-                (filters.rate ? provider.rates === filters.rate : true)
+                rateFilter
             );
         });
 
         const [currentDate, setCurrentDate] = useState(0);
 
-        if (matchedDates.length == 0) {
+        if (matchedDates.length === 0) {
             alert("YOU'RE TOO PICKY");
             handlePageChange("search");
         }
 
-        const provider = matchedDates[currentDate]
+        const provider = matchedDates[currentDate];
 
-        const [datingStatus, setDatingStatus] = useState("browse")
+        const [datingStatus, setDatingStatus] = useState("browse");
         const handleDatingStatus = (datingStatus) => {
-            if (datingStatus == "moreInfo") {
-                setDatingStatus("moreInfo")
-            }
-            else if (datingStatus == "reject") {
+            if (datingStatus === "moreInfo") {
+                setDatingStatus("moreInfo");
+            } else if (datingStatus === "reject") {
                 if (currentDate < matchedDates.length - 1) {
-                    setCurrentDate(currentDate + 1)
-                    setDatingStatus("browse")
+                    setCurrentDate(currentDate + 1);
+                    setDatingStatus("browse");
+                } else {
+                    alert("out of options");
+                    handlePageChange("search");
                 }
-                else {
-                    alert("out of options")
-                    handlePageChange("search")
-                }
+            } else if (datingStatus === "accept") {
+                setDatingStatus("accept");
+            } else if (datingStatus === "return") {
+                handlePageChange("search");
             }
-            else if (datingStatus == "accept") {
-                setDatingStatus("accept")
-            }
-            else if (datingStatus == "return") {
-                handlePageChange("search")
-            }
-        }
+        };
 
         function BrowseProviders() {
             return (
@@ -142,41 +156,39 @@ export default function Home() {
                     <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
                     <button onClick={() => handleDatingStatus("reject")}>X</button>
                     <div>
-                        <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`}/>
+                        <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
                         <h1>{provider.first_name} {provider.last_name}</h1>
+                        <h2>{provider.rates}</h2>
                         <p>{provider.short_description}</p>
                         <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
                     </div>
                     <button onClick={() => handleDatingStatus("accept")}>&lt;3</button>
                     {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
                 </>
-            )
+            );
         }
 
         function MoreInfo({ bio }) {
             return (
                 <>
-                More Info
+                    More Info
                     <p>{bio}</p>
                 </>
-            )
+            );
         }
 
         function ProviderContact({ provider }) {
-
-            
-
             return (
                 <>
-                <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
-                <h1>Contact</h1>
-                <img src={provider.image} />
-                <h2>{provider.first_name} {provider.last_name}, {provider.qualifications}</h2>
-                <h3>{provider.specialty}</h3>
-                <p>Phone Number: {provider.phone_number}</p>
-                <p>Email: {provider.email}</p>
+                    <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
+                    <h1>Contact</h1>
+                    <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
+                    <h2>{provider.first_name} {provider.last_name}, {provider.qualifications}</h2>
+                    <h3>{provider.specialty}</h3>
+                    <p>Phone Number: {provider.phone_number}</p>
+                    <p>Email: {provider.email}</p>
                 </>
-            )
+            );
         }
 
         return (
@@ -188,12 +200,11 @@ export default function Home() {
             </div>
         );
     }
-    
 
   return (
     <>
-    {currentPage === "search" && <Search handlePageChange={handlePageChange} />}
-    {currentPage === "dating" && <Dating handlePageChange={handlePageChange} filters={filters} />}
+      {currentPage === "search" && <Search handlePageChange={handlePageChange} />}
+      {currentPage === "dating" && <Dating handlePageChange={handlePageChange} filters={filters} />}
     </>
   );
 }
