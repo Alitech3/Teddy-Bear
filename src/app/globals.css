@@ -2,18 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global layout */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+	@apply
+		m-0
+		bg-Background
+		h-screen
+		w-screen
+		flex
+		justify-center
+		items-center
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+	@apply
+		w-1
+		bg-Background
+		rounded-full
 }
-
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
+::-webkit-scrollbar-thumb {
+	@apply
+		bg-Accent
+		rounded-full
+}
+::-webkit-scrollbar-thumb:hover {
+	@apply
+		bg-[#8edde8]
+		rounded-full
+}
+::-webkit-scrollbar:hover {
+	@apply
+		bg-Accent
+		rounded-full
 }
