@@ -12,7 +12,9 @@ import {
   } from "@/components/ui/card"
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { X, Heart } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -184,51 +186,80 @@ export default function Home() {
         function BrowseProviders() {
             return (
                 <>
-                    <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
-                    <button onClick={() => handleDatingStatus("reject")}>X</button>
-                    <div>
-                        <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
-                        <h1>{provider.first_name} {provider.last_name}</h1>
-                        <h2>{provider.accepted_insurance} {provider.rates}</h2>
-                        <p>{provider.short_description}</p>
-                        <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
+                <Button className="mb-6" onClick={() => handleDatingStatus("return")}>Return to Search</Button>
+                <div className="flex justify-center space-x-8">
+                    <div className="flex items-center">
+                        <Button onClick={() => handleDatingStatus("reject")} size="icon"><X /></Button>
                     </div>
-                    <button onClick={() => handleDatingStatus("accept")}>&lt;3</button>
+                <Card className="w-80 min-h-2/3 max-h-fit">
+                    <CardHeader>
+                        <CardTitle>{provider.first_name} {provider.last_name}</CardTitle>
+                        <CardDescription>{provider.qualifications}, {provider.specialty}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <img className="pb-3" src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
+                        <CardDescription className="pb-2">{provider.accepted_insurance} - {provider.rates}</CardDescription>
+                        <p>{provider.short_description}</p>
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-center">
+                        <Button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</Button>
+                    </CardFooter>
+                </Card>
                     {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
+                    <div className="flex items-center">
+                    <Button onClick={() => handleDatingStatus("accept")} size="icon"><Heart /></Button>
+                    </div>
+                </div>
                 </>
             );
         }
 
         function MoreInfo({ bio }) {
             return (
-                <>
-                    More Info
-                    <p>{bio}</p>
-                </>
+                <Card className="max-w-96 max-h-fit">
+                    <CardHeader>
+                        <CardTitle>About {provider.first_name} {provider.last_name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p>{bio}</p>
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-center">
+                        <Button onClick={() => setDatingStatus("browse")}>Close</Button>
+                    </CardFooter>
+                </Card>
             );
         }
 
         function ProviderContact({ provider }) {
             return (
                 <>
-                    <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
-                    <h1>Contact</h1>
-                    <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
-                    <h2>{provider.first_name} {provider.last_name}, {provider.qualifications}</h2>
-                    <h3>{provider.specialty}</h3>
-                    <p>Phone Number: {provider.phone_number}</p>
-                    <p>Email: {provider.email}</p>
+                <Button className="mb-6" onClick={() => handleDatingStatus("return")}>Return to Search</Button>
+                <Card className="w-80 min-h-2/3 max-h-fit">
+                <CardHeader>
+                    <CardTitle>{provider.first_name} {provider.last_name}</CardTitle>
+                    <CardDescription>{provider.qualifications}, {provider.specialty}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <img className="pb-3" src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
+                    <CardDescription className="pb-2">{provider.accepted_insurance} - {provider.rates}</CardDescription>
+                    <p>{provider.short_description}</p>
+                </CardContent>
+                <CardFooter className="flex flex-col items-start">
+                    <p><strong>Phone Number</strong> <Link href={"tel:"+provider.phone_number}>{provider.phone_number}</Link></p>
+                    <p><strong>Email</strong> <Link href={"mailto:"+provider.email}>{provider.email}</Link></p>
+                </CardFooter>
+                </Card>
                 </>
             );
         }
 
         return (
-            <div id="Container" className="flex flex-col">
-                <PatientLayout>
+            <PatientLayout>
+                <div className="flex flex-col items-center justify-center min-h-screen">
                     {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
                     {datingStatus === "accept" && <ProviderContact provider={provider} />}
-                </PatientLayout>
-            </div>
+                </div>
+            </PatientLayout>
         );
     }
 
