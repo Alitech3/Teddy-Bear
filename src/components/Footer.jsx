@@ -8,7 +8,7 @@ export default function Footer() {
           <Link href="/" className="hover:text-gray-400">Home</Link>
           <Link href="/about" className="hover:text-gray-400">About</Link>
           <Link href="/contact" className="hover:text-gray-400">Contact</Link>
-          <Link href={'/sitemap'} className="hover:text-gray-400">Sitemap</Link>
+          <Link href="/sitemap" className="hover:text-gray-400">Sitemap</Link>
         </div>
         <p className="text-sm">
                 &copy; 2024 Teddy Bear LLC. All rights reserved.
