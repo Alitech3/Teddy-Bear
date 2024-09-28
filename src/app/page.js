@@ -5,6 +5,7 @@ import '../css/home.css';
 
 import Logo from '../../assets/home/Logo.png';
 import Hat from '../../assets/home/Hat.png';
+import Footer from '@/components/Footer';
 
 // Todo
 // Sticky nav on scroll(?)
@@ -32,6 +33,7 @@ export default function Home() {
           alt="Your new pediatric pal"
           style={{marginLeft: 50}}/>
       </div>
+      <Footer />
     </div>
   );
 }
