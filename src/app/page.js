@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import '../css/home.css';
 
-import Bear from '../../assets/home/Teddybear.png';
 import Logo from '../../assets/home/Logo.png';
 
 // Todo
