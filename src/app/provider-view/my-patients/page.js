@@ -6,8 +6,8 @@ export default function MyPatients() {
     return(
         <>
         <ProviderLayout>
-            <div className='flex h-screen'>
-                <div className="flex flex-col w-full gap-10 overflow-y-scroll pt-5">
+            <div className='flex h-screen overflow-y-scroll'>
+                <div className="flex flex-col w-full gap-10 pt-5">
                 {data.map((d, index) => ( index <= 10 &&
                     <PatientCard key={index} patient={d} />
                 ))}

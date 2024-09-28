@@ -6,20 +6,3 @@
 body {
 	@apply m-0 bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900 text-Text
 }
-
-::-webkit-scrollbar {
-	@apply w-0 bg-Background rounded-full
-}
-
-/* ::-webkit-scrollbar-thumb {
-	@apply
-		bg-Accent
-		rounded-full
-} */
-::-webkit-scrollbar-thumb:hover {
-	@apply bg-[#8edde8] rounded-full
-}
-
-::-webkit-scrollbar:hover {
-	@apply bg-Accent rounded-full
-}
