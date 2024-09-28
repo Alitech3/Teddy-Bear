@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import data from '../../../../data/patients.json';
 import prescriptionData from '../../../../data/prescriptions.json';
 import PatientLayout from "@/components/PatientLayout";
@@ -19,6 +20,7 @@ export default function MyMedications({ patient_id }) {
           ) : (
             <p>No meds found</p>
           )}
+          <Link href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
           </PatientLayout>
           
 
