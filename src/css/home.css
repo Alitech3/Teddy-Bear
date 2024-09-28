@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Nav {
+    @apply
+    flex 
+    justify-end
+}
+.Nav > h1 {
+    @apply
+        mx-3
+}
+.Mission {
+    @apply
+        flex
+        justify-center
+        items-center
+        h-screen
+}
+.Mission > p {
+    @apply
+        w-1/2
+        text-xl
+        flex
+        justify-center
+        items-center
+        p-4
+        bg-Secondary
+        rounded-lg
+}
