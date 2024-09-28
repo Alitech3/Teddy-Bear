@@ -7,7 +7,7 @@ import OpenAI from 'openai';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const openai = new OpenAI({
-  apiKey: process.env.NEXT_OPENAI_API_KEY,
+  apiKey: '',
   dangerouslyAllowBrowser: true,
 });
 
