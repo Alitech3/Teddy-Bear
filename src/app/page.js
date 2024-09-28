@@ -4,6 +4,7 @@ import Link from 'next/link';
 import '../css/home.css';
 
 import Logo from '../../assets/home/Logo.png';
+import Hat from '../../assets/home/Hat.png';
 
 // Todo
 // Sticky nav on scroll(?)
@@ -30,6 +31,11 @@ export default function Home() {
         <p>
           Meddy aims to connect communities, patient, and providers to provide a coheisive support system.
         </p>
+        <Image 
+          src={Hat}
+          width={110}
+          height={110}
+          id='Hat'/>
         <Image
           src={Logo}
           width={200}

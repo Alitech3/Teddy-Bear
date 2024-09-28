@@ -11,6 +11,7 @@
 .LandingContainer {
     @apply
         bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900
+        overflow-y-hidden
     }
 .Branding {
     @apply
@@ -28,8 +29,8 @@
 .Branding > h1 {
     @apply
         text-center
-        text-5xl
-        m-2
+        text-7xl
+        m-0
         font-bold
         text-Text
 }
@@ -46,13 +47,14 @@
 }
 .Mission > p {
     @apply
-        w-1/2
+        w-1/3
         text-xl
         flex
         justify-center
+        justify-around
         items-center
-        p-4
         text-Text
+        font-semibold
 }
 #Login {
     @apply
@@ -73,4 +75,11 @@
         rounded-lg
         h-1/2
         text-Text
+}
+#Hat {
+    @apply
+        absolute
+        right-[413px]
+        bottom-[360px]
+        rotate-[20deg]
 }
