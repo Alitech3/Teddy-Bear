@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <ProviderHeader />
       <div className="flex flex-row flex-wrap gap-10">
-        {data.map((d, index) => (
+        {data.map((d, index) => ( index <= 10 &&
           <PatientCard key={index} patient={d} />
         ))}
       </div>
