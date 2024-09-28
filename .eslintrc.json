@@ -23,7 +23,7 @@
   "rules": {
     "indent": [
         "error",
-        "space"
+        2
     ],
   "react/no-unescaped-entities": "off",
     "linebreak-style": [
