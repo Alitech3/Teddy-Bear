@@ -24,12 +24,12 @@ export default function Home() {
         </div>
         <Link href={'./login'} id="Login">Login
         </Link>
-        <Link href={'./signup'}id="Signup">Signup
+        <Link href={'./signup'} id="Signup">Signup
         </Link>
       </div>
       <div className="Mission">
         <p>
-          Meddy aims to connect communities, patient, and providers to provide a coheisive support system.
+          Meddy aims to standardize patient-provider medication information
         </p>
         <Image 
           src={Hat}
