@@ -1,6 +1,6 @@
-import data from '../../../data/patients.json'
-import Header from '@/components/Header'
-import PatientCard from '@/components/PatientCard'
+import data from '../../../data/patients.json';
+import Header from '@/components/header';
+import PatientCard from '@/components/PatientCard';
 
 export default function Home() {
 
@@ -14,5 +14,5 @@ export default function Home() {
       </div>
     </>
 
-  )
+  );
 }

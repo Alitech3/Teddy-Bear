@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 import '../css/home.css';
 
@@ -21,15 +21,15 @@ export default function Home() {
         </Link>
       </div>
       <div className="Mission">
-       <p>
+        <p>
         TeddyBear is on a mission to revolutionize the way healthcare is experienced by bridging the gap between communities, patients, and providers. Our platform fosters seamless collaboration, creating a cohesive support system that empowers patients while strengthening the relationships between care teams and the broader community. By integrating cutting-edge technology with a human-centered approach, Teddy Bear aims to deliver personalized, accessible care and foster a sense of connection that goes beyond traditional healthcare models
-       </p>
-       <Image
-        src={Bear}
-        width={200}
-        height={200}
-        alt="Your new pediatric pal"
-        style={{marginLeft: 50}}/>
+        </p>
+        <Image
+          src={Bear}
+          width={200}
+          height={200}
+          alt="Your new pediatric pal"
+          style={{marginLeft: 50}}/>
       </div>
     </div>
   );
