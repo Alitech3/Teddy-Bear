@@ -1,3 +1,4 @@
+
 import data from '../../../data/patients.json';
 import PatientCard from '@/components/PatientCard';
 import ProviderHeader from '@/components/ProviderHeader';
