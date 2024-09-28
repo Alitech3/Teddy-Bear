@@ -11,13 +11,20 @@ main {
         items-center
         justify-center
         text-center
-        text-Text
+}
+#Logo {
+    @apply
+        flex
+        justify-center
+        items-center
 }
 h1 {
     @apply
         text-6xl
-        font-semibold
+        font-bold
+        tracking-widest
         my-10
+
 }
 h2 {
     @apply
@@ -25,30 +32,11 @@ h2 {
         font-medium
         tracking-wide
         my-10
-}
-#Logo {
-    @apply
-        flex
-        items-center
-        justify-center
+
 }
 p {
     @apply
     text-3xl
     my-10
-}
 
-/* 
-h1 {
-    @apply
-        text-6xl
-        font-semibold
-        my-10
 }
-h2 {
-    @apply
-        text-3xl
-        font-medium
-        tracking-wide
-        my-10
-} */
