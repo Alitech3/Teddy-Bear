@@ -6,7 +6,6 @@ import MedicationCard from '@/components/MedicationCard';
 import PageTitle from '@/components/PageTitle';
 
 export default function MyMedications({ patient_id }) {
-  const prescription = prescriptionData[0].medications
  
   return (
       <>
@@ -22,11 +21,11 @@ export default function MyMedications({ patient_id }) {
           ) : (
             <p>No meds found</p>
           )} */}
-          <div className='flex flex-col gap-5'>
-            {prescription.map((medication, index) => (
+          {/* <div className='flex flex-col gap-5'>
+            {data[0].map((medication, index) => (
               <MedicationCard key={index} index={index} medication={medication}/>
             ))}
-          </div>
+          </div> */}
           
 
           <Link href="https://www.google.com/maps/search/pharmacies+near+me/" target="_blank">Find a Pharmacy</Link>
