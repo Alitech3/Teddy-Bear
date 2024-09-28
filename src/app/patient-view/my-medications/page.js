@@ -3,7 +3,7 @@ import prescriptionData from '../../../../data/prescriptions.json';
 import PatientLayout from "@/components/PatientLayout";
 
 export default function MyMedications({ patient_id }) {
-  const patient = data[100]
+  const patient = data[27]
   const myMeds = prescriptionData.filter(prescription => prescription.id === patient.medications)
   return (
 
