@@ -6,6 +6,5 @@ export default function Home() {
       <Sidebar/>
       <h2>Medical History</h2>
     </>
-
   );
 }

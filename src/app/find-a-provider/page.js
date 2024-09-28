@@ -1,8 +1,7 @@
-
-import Image from "next/image";
+'use client';
 import Sidebar from "@/components/Sidebar"
 
-'use client';
+
 import "./find-a-provider.css";
 import { useState } from "react";
 
@@ -15,6 +14,7 @@ export default function Home() {
     function Search() {
         return (
             <>
+                <Sidebar/>
                 <h1>What I want in a provider</h1>
                 <label htmlFor="specialty">Specialty</label>
                 <select name="specialty">

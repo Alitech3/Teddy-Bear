@@ -1,12 +1,12 @@
-import  Sidebar  from  "@/components/Sidebar";
-
+import Sidebar from "@/components/Sidebar";
 
 export default function YourMedications() {
   return (
 
       <>
-        <Sidebar/>
-        <h2>Your Medications</h2>
+          <Sidebar/>
+          <h2>Your Medications</h2>
+
       </>
       
 
