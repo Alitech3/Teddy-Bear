@@ -5,14 +5,18 @@ import '../css/home.css';
 import Bear from '../../assets/home/Teddybear.png';
 
 export default function Home() {
+
+  
+
+
   return (
     <div>
       <div className="Nav">
         <h1>
-          Login
+          <a href="/login">Login</a>
         </h1>
         <h1>
-          Signup
+          <a href="/signup">Signup</a>
         </h1>
       </div>
       <div className="Mission">
