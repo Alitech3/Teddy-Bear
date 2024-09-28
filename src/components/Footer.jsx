@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Footer() {
     return(
@@ -11,8 +11,8 @@ export default function Footer() {
                 </div>
                 <p className="text-sm">
                 &copy; 2024 Teddy Bear LLC. All rights reserved.
-                </p>
-            </div>
-        </footer>
-    )
+        </p>
+      </div>
+    </footer>
+  );
 }

@@ -1,12 +1,12 @@
-import data from '../../../data/patients.json'
-import Header from '@/components/Header'
-import PatientCard from '@/components/PatientCard'
+import data from '../../../data/patients.json';
+import PatientCard from '@/components/PatientCard';
+import ProviderHeader from '@/components/ProviderHeader';
 
 export default function Home() {
 
   return (
     <>
-      <Header />
+      <ProviderHeader />
       <div className="flex flex-row flex-wrap gap-10">
         {data.map((d, index) => (
           <PatientCard key={index} patient={d} />
@@ -14,5 +14,5 @@ export default function Home() {
       </div>
     </>
 
-  )
+  );
 }

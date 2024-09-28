@@ -1,17 +1,22 @@
-export default function Header({props}) {
-  return (
-    <header className="bg-Primary text-white py-4 mr mb-8">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">Your Patients</h1>
-        <nav>
-          <ul className="flex space-x-6">
-            <li className="hover:text-gray-200">Home</li>
-            <li className="hover:text-gray-200">About</li>
-            <li className="hover:text-gray-200">Services</li>
-            <li className="hover:text-gray-200">Contact</li>
-          </ul>
-        </nav>
+// add settings icon and msgs icon
+
+export default function Header() {
+  return(
+    <header className="header">
+      <div className="Back">
+        
       </div>
     </header>
+
+    
+  // <header className="bg-gray-800 text-white py-6">
+  //   <div className="container mx-auto text-center">
+  //     <div className="flex justify-center space-x-6 mb-4">
+  //     </div>
+  //     <p className="text-sm">
+  //             &copy; 2024 Teddy Bear LLC. All rights reserved.
+  //     </p>
+  //   </div>
+  // </header>
   );
 }
