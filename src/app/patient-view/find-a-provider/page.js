@@ -1,8 +1,18 @@
 'use client';
-// import "./find-a-provider.css";
 import data from '../../../../data/providers.json';
 import { useState, useEffect } from "react";
 import PatientLayout from "@/components/PatientLayout";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function Home() {
 
@@ -32,23 +42,22 @@ export default function Home() {
             const locations = new Set(data.map(item => item.location));
             setLocations([...locations]);
 
-            // Map rates to predefined categories
             const rateCategories = {
-                "<$50": [],
-                "$50-100": [],
-                "$100-200": [],
-                ">$200": []
+                "<$50 / visit": [],
+                "$50-100 / visit": [],
+                "$100-200 / visit": [],
+                ">$200 / visit": []
             };
             data.forEach(item => {
-                const rate = parseFloat(item.rates.replace(/[^0-9.-]+/g, "")); // Parse numeric value from rate string
+                const rate = parseFloat(item.rates.replace(/[^0-9.-]+/g, ""));
                 if (rate < 50) {
-                    rateCategories["<$50"].push(item.rates);
+                    rateCategories["<$50 / visit"].push(item.rates);
                 } else if (rate >= 50 && rate <= 100) {
-                    rateCategories["$50-100"].push(item.rates);
+                    rateCategories["$50-100 / visit"].push(item.rates);
                 } else if (rate > 100 && rate <= 200) {
-                    rateCategories["$100-200"].push(item.rates);
+                    rateCategories["$100-200 / visit"].push(item.rates);
                 } else {
-                    rateCategories[">$200"].push(item.rates);
+                    rateCategories[">$200 / visit"].push(item.rates);
                 }
             });
 
@@ -58,39 +67,61 @@ export default function Home() {
 
         return (
             <PatientLayout>
-
-            
-            <div id="Container">
-                <h1>What I want in a provider</h1>
-                <label htmlFor="specialty">Specialty</label>
-                <select name="specialty" value={selectedSpecialty} onChange={(e) => setSelectedSpecialty(e.target.value)}>
-                    <option value="">Select a specialty</option>
-                    {specialties.map(specialty => (
-                        <option key={specialty} value={specialty}>{specialty}</option>
-                    ))}
-                </select>
-                <label htmlFor="insurance">Insurance</label>
-                <select name="insurance" value={selectedInsurance} onChange={(e) => setSelectedInsurance(e.target.value)}>
-                    <option value="">What's your insurance?</option>
-                    {insurance.map(insurance => (
-                        <option key={insurance} value={insurance}>{insurance}</option>
-                    ))}
-                </select>
-                <label htmlFor="location">Location</label>
-                <select name="location" value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
-                    <option value="">Where you at?</option>
-                    {locations.map(location => (
-                        <option key={location} value={location}>{location}</option>
-                    ))}
-                </select>
-                <label htmlFor="rate">Rate</label>
-                <select name="rate" value={selectedRate} onChange={(e) => setSelectedRate(e.target.value)}>
-                    <option value="">How much are we talkin' about?</option>
-                    {rates.map(rate => (
-                        <option key={rate} value={rate}>{rate}</option>
-                    ))}
-                </select>
-                <button onClick={() => handlePageChange("dating", {specialty: selectedSpecialty, insurance: selectedInsurance, location: selectedLocation, rate: selectedRate})}>Set Preferences</button>
+                <div className="flex items-center justify-center h-screen">
+                <Card className="w-80 h-2/3">
+                <CardHeader className="flex items-center justify-center">
+                    <CardTitle>Search Providers</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Label htmlFor="specialty">Specialty</Label>
+                    <Select onValueChange={(value) => setSelectedSpecialty(value)}>
+                        <SelectTrigger>
+                        <SelectValue placeholder="Select a specialty"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            {specialties.map(specialty => (
+                                <SelectItem key={specialty} value={specialty}>{specialty}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <Label htmlFor="insurance">Insurance</Label>
+                    <Select onValueChange={(value) => setSelectedInsurance(value)}>
+                        <SelectTrigger>
+                        <SelectValue placeholder="Select your insurance provider"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            {insurance.map(insurance => (
+                                <SelectItem key={insurance} value={insurance}>{insurance}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <Label htmlFor="location">Location</Label>
+                    <Select onValueChange={(value) => setSelectedLocation(value)}>
+                        <SelectTrigger>
+                        <SelectValue placeholder="Select your city"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            {locations.map(location => (
+                                <SelectItem key={location} value={location}>{location}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <Label htmlFor="rate">Rates</Label>
+                    <Select onValueChange={(value) => setSelectedRate(value)}>
+                        <SelectTrigger>
+                        <SelectValue placeholder="Select your budget"/>
+                        </SelectTrigger>
+                        <SelectContent>
+                            {rates.map(rate => (
+                                <SelectItem key={rate} value={rate}>{rate}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-center">
+                    <Button onClick={() => handlePageChange("dating", {specialty: selectedSpecialty, insurance: selectedInsurance, location: selectedLocation, rate: selectedRate})}>Set Preferences</Button>
+                    </CardFooter>
+                </Card>
             </div>
             </PatientLayout>
         );
@@ -125,7 +156,7 @@ export default function Home() {
         const [currentDate, setCurrentDate] = useState(0);
 
         if (matchedDates.length === 0) {
-            alert("YOU'RE TOO PICKY");
+            alert("no options found. please adjust your filters");
             handlePageChange("search");
         }
 
@@ -158,7 +189,7 @@ export default function Home() {
                     <div>
                         <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`} />
                         <h1>{provider.first_name} {provider.last_name}</h1>
-                        <h2>{provider.rates}</h2>
+                        <h2>{provider.accepted_insurance} {provider.rates}</h2>
                         <p>{provider.short_description}</p>
                         <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
                     </div>
@@ -192,7 +223,7 @@ export default function Home() {
         }
 
         return (
-            <div id="Container">
+            <div id="Container" className="flex flex-col">
                 <PatientLayout>
                     {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
                     {datingStatus === "accept" && <ProviderContact provider={provider} />}
