@@ -1,6 +1,9 @@
+import { CardWithForm } from "@/components/ui/cardwithform";
 
 export default function Home() {
   return (
-    <h2>Signup</h2>
+    <div className="grid grid-cols-3">
+    <CardWithForm></CardWithForm>
+    </div>
   );
 }
