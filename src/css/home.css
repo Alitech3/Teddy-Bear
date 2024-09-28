@@ -56,19 +56,21 @@
 }
 #Login {
     @apply
+        hover:text-black
         px-4
         py-1
         bg-Accent
-        border-2
         rounded-lg
         h-1/2
+        text-Text
 }
 #Signup {
     @apply
+        hover:text-black
         px-4
         py-1
         bg-Accent
-        border-2
         rounded-lg
         h-1/2
+        text-Text
 }

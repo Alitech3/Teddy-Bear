@@ -13,7 +13,7 @@ module.exports = {
         Background: '#e4e4e4',
         Primary: '#14967f',
         Secondary: '#1579a1',
-        Accent: '#ccecee',
+        Accent: '#6fa9bd',
       }
     }
   },
