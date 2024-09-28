@@ -44,7 +44,7 @@ const page = () => {
     </Alert>
     <Button onClick={clickHandler}>Alert!</Button>
     <Input className = "" placeholder="Type in prescriptions"></Input>
-    <div>{text} + Hallo</div>
+    <div>{text}</div>
     </div>
     
   )
