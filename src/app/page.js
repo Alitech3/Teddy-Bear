@@ -13,23 +13,23 @@ export default function Home() {
   return (
     <div className='LandingContainer'>
       <div className="Nav">
-        <div className='Branding'>
-          <Image
+        <div className='Branding flex flex-row items-center absolute top-4 left-1/2 transform -translate-x-1/2'>
+          {/* <Image
             src={Logo}
             width={50}
-            height={50}/>
+            height={50}/> */}
           <h1>
             Meddy
           </h1>
         </div>
         <Link href={'./login'} id="Login">Login
         </Link>
-        <Link href={'./signup'}id="Signup">Signup
+        <Link href={'./signup'} id="Signup">Signup
         </Link>
       </div>
       <div className="Mission">
         <p>
-          Meddy aims to connect communities, patient, and providers to provide a coheisive support system.
+          Meddy aims to standardize patient-provider medication information
         </p>
         {/* <Image 
           src={Hat}

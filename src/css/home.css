@@ -37,6 +37,8 @@
 .Nav > * {
     @apply
         mx-3
+        mt-4
+        mr-10
 }
 .Mission {
     @apply
@@ -57,24 +59,25 @@
         font-semibold
 }
 #Login {
+    font-size: larger;
     @apply
-        hover:text-black
-        px-4
+    hover:text-gray-400
+        px-2
         py-1
-        bg-Accent
-        rounded-lg
+        font-bold
+        
         h-1/2
         text-Text
 }
 #Signup {
+    font-size: larger;
     @apply
-        hover:text-black
-        px-4
-        py-1
-        bg-Accent
-        rounded-lg
-        h-1/2
-        text-Text
+    hover:text-gray-400
+    px-2
+    py-1
+    font-bold
+    h-1/2
+    text-Text
 }
 #Hat {
     @apply
