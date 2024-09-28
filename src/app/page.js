@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <div className='LandingContainer'>
       <div className="Nav">
-        <div className='Branding flex flex-row items-center absolute top-4 left-1/2 transform -translate-x-1/2'>
-          {/* <Image
+        <div className='Branding flex flex-row items-center absolute top-2 left-15 transform -translate-x-1/2'>
+          <Image
             src={Logo}
             width={50}
-            height={50}/> */}
-          <h1>
+            height={50}/>
+          <h1 style={{fontSize: "1.3em"}}>
             Meddy
           </h1>
         </div>
@@ -28,18 +28,16 @@ export default function Home() {
         </Link>
       </div>
       <div className="Mission">
-        <p>
-          Meddy aims to standardize patient-provider medication information
-        </p>
-        {/* <Image 
-          src={Hat}
-          width={110}
-          height={110}
-          id='Hat'/> */}
+        <div className='flex flex-col text-left text-4x1'>
+          <h1 style={{fontSize: "3em", color: "white"}} className='font-bold text-4xl'>Welcome to <b style={{fontSize: "1.5em"}}>Meddy!</b></h1>
+          <p style={{fontSize: "1.5em", paddingTop: "20px", color: "white"}}  className='text-2x1'>
+            Meddy aims to standardize patient-provider medication information
+          </p>
+        </div>
         <Image
           src={Logo}
-          width={200}
-          height={200}
+          width={250}
+          height={250}
           alt="Your new pediatric pal"
           style={{marginLeft: 50}}/>
       </div>

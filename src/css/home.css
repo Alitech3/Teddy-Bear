@@ -29,7 +29,6 @@
 .Branding > h1 {
     @apply
         text-center
-        text-7xl
         m-0
         font-bold
         text-Text
@@ -50,7 +49,7 @@
 .Mission > p {
     @apply
         w-1/3
-        text-xl
+        text-2xl
         flex
         justify-center
         justify-around
