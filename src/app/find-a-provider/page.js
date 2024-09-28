@@ -1,4 +1,5 @@
 'use client';
+import "./find-a-provider.css";
 import { useState } from "react";
 
 export default function Home() {
@@ -10,25 +11,25 @@ export default function Home() {
         return (
             <>
                 <h1>What I want in a provider</h1>
-                <label for="specialty">Specialty</label>
+                <label htmlFor="specialty">Specialty</label>
                 <select name="specialty">
                     <option value="neurology">neurology</option>
                     <option value="dentistry">dentistry</option>
                     <option value="pediatrics">pediatrics</option>
                 </select>
-                <label for="insurance">Insurance</label>
+                <label htmlFor="insurance">Insurance</label>
                 <select name="insurance">
                     <option value="medicare">medicare</option>
                     <option value="crossycross">crossycross</option>
                     <option value="employer">employer</option>
                 </select>
-                <label for="location">Location</label>
+                <label htmlFor="location">Location</label>
                 <select name="location">
                     <option value="orlando">orlando</option>
                     <option value="miami">miami</option>
                     <option value="fort myers">fort myers</option>
                 </select>
-                <label for="rate">Rate</label>
+                <label htmlFor="rate">Rate</label>
                 <select name="rate">
                     <option value="$">$</option>
                     <option value="$$">$$</option>
@@ -40,6 +41,22 @@ export default function Home() {
     }
 
     function Dating() {
+
+        const provider = {
+            first_name: "Betty",
+            last_name:"Boop",
+            image:"https://media.discordapp.net/attachments/1288011053891846164/1289465524270661632/IMG_0837.jpg?ex=66f8ebda&is=66f79a5a&hm=1daf97f3dd43dffeb0e05bce409df9b752803554f30b765b27dc01343f359ddf&=&format=webp&width=458&height=611",
+            specialty:"Therapy",
+            qualifications:"PhD",
+            phone_number:"508-788-0445",
+            email:"betty.boop@email.co",
+            location:"Orlando",
+            accepted_insurance:"Humana",
+            rates:479.08,
+            short_description: "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
+            long_description: "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+        };
+        
 
         const [datingStatus, setDatingStatus] = useState("browse")
         const handleDatingStatus = (datingStatus) => {
@@ -57,30 +74,21 @@ export default function Home() {
             <>
                 <button onClick={() => handleDatingStatus("reject")}>X</button>
                 <div>
-                    <h1>Replace this with an image.</h1>
-                    <h1>FirstName LastName</h1>
-                    <p>Short description</p>
+                    <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`}/>
+                    <h1>{provider.first_name} {provider.last_name}</h1>
+                    <p>{provider.short_description}</p>
                     <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
                 </div>
                 <button onClick={() => handleDatingStatus("accept")}>&lt;3</button>
-                {datingStatus === "moreInfo" && <MoreInfo />}
+                {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
             </>
         );
     }
 
-    function MoreInfo() {
+    function MoreInfo({ bio }) {
         return (
             <>
-                <p>This is a long description for a provider.</p>
-                <p>Lorem ipsum to be, or not to be, thats the question Nor made to court an amorous looking-glass; So clear in his great office, that his virtues
-
-She gave me for my pains a world of sighs Said he not so? or did I dream it so? We'ld jump the life to come. but in these cases You sulphurous and thought-executing fires, Hath borne his faculties so meek, hath been
-
-But as the riper should by time decease, The deep damnation of his taking-off; To strut before a wanton ambling nymph; Here's to my love!
-
-Deformed, unfinish'd, sent before my time But still the house-affairs would draw her thence Vaunt-couriers to oak-cleaving thunderbolts, From this world-wearied flesh. eyes, look your last!
-
-</p>
+                <p>{bio}</p>
             </>
         )
     }
