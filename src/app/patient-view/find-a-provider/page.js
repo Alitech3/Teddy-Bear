@@ -39,7 +39,7 @@ export default function Home() {
 
         return (
             <div id="Container">
-                <Sidebar/>
+                <Sidebar />
                 <h1>What I want in a provider</h1>
                 <label htmlFor="specialty">Specialty</label>
                 <select name="specialty" value={selectedSpecialty} onChange={(e) => setSelectedSpecialty(e.target.value)}>
@@ -125,32 +125,64 @@ export default function Home() {
                     handlePageChange("search")
                 }
             }
-            else {
-                // load a messaging window with the current provider
-                alert("hooray!")
+            else if (datingStatus == "accept") {
+                setDatingStatus("accept")
+            }
+            else if (datingStatus == "return") {
+                handlePageChange("search")
             }
         }
-        return (
-            <>
-                <button onClick={() => handleDatingStatus("reject")}>X</button>
-                <div>
-                    <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`}/>
-                    <h1>{provider.first_name} {provider.last_name}</h1>
-                    <p>{provider.short_description}</p>
-                    <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
-                </div>
-                <button onClick={() => handleDatingStatus("accept")}>&lt;3</button>
-                {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
-            </>
-        );
-    }
 
-    function MoreInfo({ bio }) {
+        function BrowseProviders() {
+            return (
+                <>
+                    <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
+                    <button onClick={() => handleDatingStatus("reject")}>X</button>
+                    <div>
+                        <img src={provider.image} alt={`${provider.first_name} ${provider.last_name}`}/>
+                        <h1>{provider.first_name} {provider.last_name}</h1>
+                        <p>{provider.short_description}</p>
+                        <button onClick={() => handleDatingStatus("moreInfo")}>Tell me more</button>
+                    </div>
+                    <button onClick={() => handleDatingStatus("accept")}>&lt;3</button>
+                    {datingStatus === "moreInfo" && <MoreInfo bio={provider.long_description} />}
+                </>
+            )
+        }
+
+        function MoreInfo({ bio }) {
+            return (
+                <>
+                More Info
+                    <p>{bio}</p>
+                </>
+            )
+        }
+
+        function ProviderContact({ provider }) {
+
+            
+
+            return (
+                <>
+                <button onClick={() => handleDatingStatus("return")}>Return to Search</button>
+                <h1>Contact</h1>
+                <img src={provider.image} />
+                <h2>{provider.first_name} {provider.last_name}, {provider.qualifications}</h2>
+                <h3>{provider.specialty}</h3>
+                <p>Phone Number: {provider.phone_number}</p>
+                <p>Email: {provider.email}</p>
+                </>
+            )
+        }
+
         return (
-            <>
-                <p>{bio}</p>
-            </>
-        )
+            <div id="Container">
+                <Sidebar />
+                {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
+                {datingStatus === "accept" && <ProviderContact provider={provider} />}
+            </div>
+        );
     }
     
 
