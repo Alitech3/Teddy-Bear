@@ -38,7 +38,7 @@ export default function Home() {
         }, []);
 
         return (
-            <>
+            <div id="Container">
                 <Sidebar/>
                 <h1>What I want in a provider</h1>
                 <label htmlFor="specialty">Specialty</label>
@@ -70,7 +70,7 @@ export default function Home() {
                     ))}
                 </select>
                 <button onClick={() => handlePageChange("dating", {specialty: selectedSpecialty, insurance: selectedInsurance, location: selectedLocation, rate: selectedRate})}>Set Preferences</button>
-            </>
+            </div>
         );
     }
 
