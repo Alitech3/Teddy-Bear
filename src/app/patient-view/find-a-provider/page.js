@@ -100,7 +100,7 @@ export default function Home() {
                 (filters.specialty ? provider.specialty === filters.specialty : true) &&
                 (filters.insurance ? provider.accepted_insurance === filters.insurance : true) &&
                 (filters.location ? provider.location === filters.location : true) &&
-                (filters.rate ? provider.rates === parseFloat(filters.rate) : true)
+                (filters.rate ? provider.rates === filters.rate : true)
             );
         });
 
@@ -181,9 +181,10 @@ export default function Home() {
 
         return (
             <div id="Container">
-                <Sidebar />
-                {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
-                {datingStatus === "accept" && <ProviderContact provider={provider} />}
+                <PatientLayout>
+                    {(datingStatus === "browse" || datingStatus === "moreInfo") && <BrowseProviders />}
+                    {datingStatus === "accept" && <ProviderContact provider={provider} />}
+                </PatientLayout>
             </div>
         );
     }
