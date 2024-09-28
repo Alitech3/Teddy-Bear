@@ -24,26 +24,26 @@ import {
 //Todo:
 // drop down to distinguish between provider and paitent or we need sample data that is linked to each case to showcase
 
-export function CardWithForm({router}) {
+export function CardWithForm({router},{Title}, {Description}) {
   const [un, setUN] = useState('');
   const [pw, setPW] = useState('');
 
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Create Account</CardTitle>
-        <CardDescription>Create your account.</CardDescription>
+        <CardTitle>{Title}</CardTitle>
+        <CardDescription>{Description}</CardDescription>
       </CardHeader>
       <CardContent>
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="username">Username</Label>
-              <Input id="name" placeholder="Username" onChange={e=> setUN(e)} />
+              <Label htmlFor="label1">Username</Label>
+              <Input id="inp1" placeholder="input1" onChange={e=> setUN(e)} />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="password">Password</Label>
-              <Input id="pasw" placeholder="Password" onChange={e => setPW(e)}/>
+              <Label htmlFor="label2">Password</Label>
+              <Input id="inp2" placeholder="input2" onChange={e => setPW(e)}/>
             </div>
           </div>
         </form>
