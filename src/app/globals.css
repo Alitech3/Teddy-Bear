@@ -12,7 +12,7 @@ body {
 }
 ::-webkit-scrollbar {
 	@apply
-		w-1
+		w-0
 		bg-Background
 		rounded-full
 }
