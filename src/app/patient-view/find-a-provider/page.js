@@ -211,7 +211,7 @@ export default function Home() {
 
     function BrowseProviders() {
       return (
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col h-screen items-center justify-center space-y-6">
           <Button
             className="max-w-fit"
             onClick={() => handleDatingStatus("return")}
