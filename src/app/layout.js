@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 
 import localFont from "next/font/local";
@@ -25,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Logo />
+        <Logo className='z-10' />
         {children}
       </body>
     </html>
