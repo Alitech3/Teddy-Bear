@@ -1,18 +1,26 @@
-import data from "../../../../data/patients.json";
-import visitData from "../../../../data/visit_history.json";
-import PatientLayout from "@/components/PatientLayout";
+import { Suspense } from 'react';
+import data from '../../../../data/patients.json';
+import visitData from '../../../../data/visit_history.json';
+
+import dynamic from 'next/dynamic';
+
+const PatientLayout = dynamic(
+  () => import('@/components/PatientLayout'),
+  { ssr: false }
+);
 
 export default function Home() {
   const patient = data[27];
   const myVisits = visitData.slice(0, patient.visit_history);
+
   return (
-    <>
+    <Suspense fallback={<>Loading...</>}>
       <PatientLayout>
         <h2>Medical History</h2>
         <p>
           {patient.first_name} {patient.last_name}
         </p>
-        <img src={patient.image} />
+        <img src={patient.image}/>
         <table>
           <tr>
             <td>DOB</td>
@@ -79,6 +87,6 @@ export default function Home() {
           <p>Make your first appointment today!</p>
         )}
       </PatientLayout>
-    </>
+    </Suspense>
   );
 }

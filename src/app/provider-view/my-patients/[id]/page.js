@@ -14,14 +14,20 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import ProviderLayout from "@/components/ProviderLayout";
-import data from "../../../../../data/patients.json";
+import patients from "../../../../../data/patients.json";
+import { usePathname } from "next/navigation";
 
 const openai = new OpenAI({
   apiKey: "",
   dangerouslyAllowBrowser: true,
 });
 
-const Page = ({ pname = "Test" }) => {
+const Page = () => {
+  console.log(patients[0].id);
+
+  let id = usePathname().substring(27);
+  console.log(id);
+  const patient = patients.find((p) => p.id === parseInt(id));
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +51,9 @@ const Page = ({ pname = "Test" }) => {
     <>
       <ProviderLayout>
         <div className="flex flex-col gap-10 pt-5">
-          <Label className=" p-6 text-white text-2xl">{pname}</Label>
+          <Label className=" p-6 text-white text-2xl">
+            {patients[id - 1].first_name + " " + patients[id - 1].last_name}
+          </Label>
           <DataTableDemo className="gap-4"></DataTableDemo>
           <DataTableDemo className="p-6"></DataTableDemo>
 
