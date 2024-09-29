@@ -1,5 +1,5 @@
 export default function Contact() {
-  return(
+  return (
     <>
       <h1>Phone Directory</h1>
       <table>
@@ -36,7 +36,6 @@ export default function Contact() {
           <td>1-800-230-7526</td>
         </tr>
       </table>
-        
     </>
   );
 }

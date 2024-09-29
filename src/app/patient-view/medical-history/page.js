@@ -1,6 +1,6 @@
-import data from '../../../../data/patients.json';
-import visitData from '../../../../data/visit_history.json';
-import PatientLayout from '@/components/PatientLayout';
+import data from "../../../../data/patients.json";
+import visitData from "../../../../data/visit_history.json";
+import PatientLayout from "@/components/PatientLayout";
 
 export default function Home() {
   const patient = data[27];
@@ -9,68 +9,42 @@ export default function Home() {
     <>
       <PatientLayout>
         <h2>Medical History</h2>
-        <p>{patient.first_name} {patient.last_name}</p>
+        <p>
+          {patient.first_name} {patient.last_name}
+        </p>
         <img src={patient.image} />
         <table>
           <tr>
-            <td>
-            DOB
-            </td>
-            <td>
-              {patient.date_of_birth}
-            </td>
+            <td>DOB</td>
+            <td>{patient.date_of_birth}</td>
           </tr>
           <tr>
-            <td>
-            Sex
-            </td>
-            <td>
-              {patient.sex}
-            </td>
+            <td>Sex</td>
+            <td>{patient.sex}</td>
           </tr>
           <tr>
-            <td>
-            Height
-            </td>
-            <td>
-              {patient.height}
-            </td>
+            <td>Height</td>
+            <td>{patient.height}</td>
           </tr>
           <tr>
-            <td>
-            Weight
-            </td>
-            <td>
-              {patient.weight}
-            </td>
+            <td>Weight</td>
+            <td>{patient.weight}</td>
           </tr>
         </table>
 
         <h3>Contact Info</h3>
         <table>
           <tr>
-            <td>
-            Phone Number
-            </td>
-            <td>
-              {patient.phone_number}
-            </td>
+            <td>Phone Number</td>
+            <td>{patient.phone_number}</td>
           </tr>
           <tr>
-            <td>
-            Email
-            </td>
-            <td>
-              {patient.email}
-            </td>
+            <td>Email</td>
+            <td>{patient.email}</td>
           </tr>
           <tr>
-            <td>
-            Home Address
-            </td>
-            <td>
-              {patient.home_address}
-            </td>
+            <td>Home Address</td>
+            <td>{patient.home_address}</td>
           </tr>
         </table>
 
@@ -82,7 +56,7 @@ export default function Home() {
 
         <h3>Treatment Notes</h3>
         <p>{patient.treat_notes}</p>
-      
+
         <h3>Recent Visits</h3>
         {myVisits.length > 0 ? (
           <table>
@@ -94,7 +68,9 @@ export default function Home() {
             {myVisits.map((visit, index) => (
               <tr key={index}>
                 <td>{visit.date}</td>
-                <td>{visit.provider_first_name} {visit.provider_last_name}</td>
+                <td>
+                  {visit.provider_first_name} {visit.provider_last_name}
+                </td>
                 <td>{visit.reason}</td>
               </tr>
             ))}
@@ -103,7 +79,6 @@ export default function Home() {
           <p>Make your first appointment today!</p>
         )}
       </PatientLayout>
-      
     </>
   );
 }
