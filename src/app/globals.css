@@ -4,8 +4,7 @@
 
 /* Global layout */
 body {
-	@apply
-		m-0
+  @apply m-0
 		bg-gradient-to-tl from-blue-300 via-cyan-400 to-blue-900
-		text-Text	
+		text-Text;
 }

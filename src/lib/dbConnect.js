@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
 
-const DATABASE_URL = "mongodb+srv://aidenletourneau:HTDz54m9ALGl9NkE@students.xtjkf.mongodb.net/?retryWrites=true&w=majority&appName=students";
+const DATABASE_URL =
+  "mongodb+srv://aidenletourneau:WqIDGsh2IoPPvHKy@mycluster.xtjkf.mongodb.net/shellhacks2024?retryWrites=true&w=majority&appName=myCluster";
 
 if (!DATABASE_URL) {
-  throw new Error("Please define the DATABASE_URL environment variable inside .env.local");
+  throw new Error(
+    "Please define the DATABASE_URL environment variable inside .env.local"
+  );
 }
 
 let cached = global.mongoose;

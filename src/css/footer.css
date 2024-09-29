@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 * {
-    @apply
-        bg-Accent
+  @apply bg-Accent;
 }
