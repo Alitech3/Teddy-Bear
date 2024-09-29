@@ -10,7 +10,7 @@ const PatientLayout = dynamic(
 );
 
 export default function Home() {
-  const patient = data[data.length];
+  const patient = data[data.length - 1];
   const myVisits = visitData.slice(0, patient.visit_history);
 
   return (
