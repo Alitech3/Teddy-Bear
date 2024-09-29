@@ -14,6 +14,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import ProviderLayout from "@/components/ProviderLayout";
+import data from "../../../../../data/patients.json";
 
 const openai = new OpenAI({
   apiKey: "",
@@ -68,12 +69,8 @@ const Page = ({ pname = "Test" }) => {
             />
             <Button
               onClick={clickHandler}
-<<<<<<< HEAD
-              className="bg-blue-600 text-white hover:bg-blue-700">
-=======
               className="bg-blue-600 text-white hover:bg-blue-700"
             >
->>>>>>> e688dbaf352b09b9ea1a67e4bf65cdaaeba518c9
               Submit
             </Button>
             <div className="text-white text-lg font-semibold">{text}</div>

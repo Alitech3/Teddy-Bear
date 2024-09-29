@@ -7,10 +7,10 @@ export default function Home() {
   const router = useRouter();
   return (
     <>
-      <div className="flex h-screen justify-center items-center">
+      <div className='flex h-screen justify-center items-center'>
         <CardWithForm
-          Title="Login"
-          Description="Meddys got you :)"
+          Title='Login'
+          Description='Meddys got you :)'
           router={router}></CardWithForm>
       </div>
       <Footer />

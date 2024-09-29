@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Sitemap() {
   return (
-    <div className="flex flex-col justify-evenly h-full text-xl mx-20 text-Text">
+    <div className='flex justify-evenly h-screen text-xl mx-20 text-Text'>
       <Link href={"/"}>Home</Link>
       <Link href={"/about"}>About</Link>
       <Link href={"/contact"}>Contact</Link>
