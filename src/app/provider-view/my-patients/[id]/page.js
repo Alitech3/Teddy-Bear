@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { readEnv } from "openai/core";
 
 const openai = new OpenAI({
-  apiKey: process.env.OpenAI_APIKey,
+  apiKey: process.env.OPENAI_AIKEY,
   dangerouslyAllowBrowser: true,
 });
 

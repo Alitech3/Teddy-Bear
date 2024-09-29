@@ -11,7 +11,6 @@ import Footer from "@/components/Footer";
 // Sticky nav on scroll(?)
 
 export default function Home() {
-  console.log(process.env);
   return (
     <div className="LandingContainer">
       <div className="Nav">

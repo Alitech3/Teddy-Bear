@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: false,
+  env: {
+    OPENAI_AIKEY: process.env.OPENAI_AIKEY,
+  },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
