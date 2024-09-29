@@ -67,6 +67,7 @@ const Page = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Ask me your health questions?"
+            className="text-black"
           />
           <Button
             onClick={clickHandler}
