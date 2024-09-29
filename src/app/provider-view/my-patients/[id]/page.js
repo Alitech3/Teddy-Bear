@@ -19,6 +19,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import prescriptions from "../../../../../data/prescriptions.json";
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_AIKEY,
   dangerouslyAllowBrowser: true,
