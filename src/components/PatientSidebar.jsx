@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
@@ -28,7 +29,11 @@ const PatientSidebar = () => {
       </div>
       <div className="flex flex-col h-full justify-end">
         <div class="flex justify-evenly">
-          <LogOut />
+          <LogOut
+            onClick={() => {
+              null;
+            }}
+          />
           <Mail className="flex" />
         </div>
       </div>
