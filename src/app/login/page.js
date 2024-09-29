@@ -8,6 +8,7 @@ export default function Home() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [failed, setFailed] = useState(false);
 
   // Handle form submission
   const handleLoginSubmit = async (event) => {
@@ -28,13 +29,16 @@ export default function Home() {
         router.push("/provider-view");
       }
     } else {
-      console.log("Login failed");
+      setFailed(true);
     }
   };
 
   return (
     <>
-      <div className='flex h-screen justify-center items-center'>
+      <div className='flex h-screen justify-center items-center flex-col'>
+        {failed && (
+          <div className='rounded-md bg-red-500 m-3 p-4'>Login Failed</div>
+        )}
         <CardWithForm
           enabled={false}
           Title='Login'
