@@ -1,15 +1,46 @@
 import mongoose from "mongoose";
 
+const medicationSchema = new mongoose.Schema({
+  brand_name: {
+    type: String,
+    required: true,
+  },
+  generic_name: {
+    type: String,
+    required: true,
+  },
+  dosage: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: String,
+    required: true,
+  },
+  form_of_ingestion: {
+    type: String,
+    enum: ["pill", "liquid", "injection", "topical", "other"],
+    required: true,
+  },
+});
+
+const prescriptionSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  medications: {
+    type: [medicationSchema],
+    required: true,
+  },
+});
+
 const patientSchema = new mongoose.Schema(
   {
-    id: {
-      type: String, // You can customize the type of id here
-      unique: true,
-    },
     first_name: {
       type: String,
       required: true,
-      unique: true,
     },
     last_name: {
       type: String,
@@ -17,10 +48,7 @@ const patientSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true, // Assuming this is the primary image
-    },
-    additional_image: {
-      type: String, // Optional secondary image
+      required: true,
     },
     date_of_birth: {
       type: Date,
@@ -52,22 +80,22 @@ const patientSchema = new mongoose.Schema(
       required: true,
     },
     diagnoses: {
-      type: [String], // Array of diagnoses
+      type: [String],
       default: [],
     },
     allergies: {
-      type: [String], // Array of allergies
+      type: [String],
       default: [],
     },
     treat_notes: {
       type: String,
     },
     visit_history: {
-      type: Number, // Reference to the visit history, assuming it's in another collection
+      type: Number,
       required: true,
     },
     prescriptions: {
-      type: [String], // List of prescription IDs or names
+      type: [prescriptionSchema], // Array of prescriptions for the patient
       default: [],
     },
   },
