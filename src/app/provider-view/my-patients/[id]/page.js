@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import OpenAI from "openai";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
-import { DataTableDemo } from "@/components/Datatable";
 import ProviderLayout from "@/components/ProviderLayout";
 import patients from "../../../../../data/patients.json";
 import { usePathname } from "next/navigation";
@@ -19,18 +18,16 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-import Image from "next/image";
+import prescriptions from "../../../../../data/prescriptions.json";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_AIKEY,
   dangerouslyAllowBrowser: true,
 });
 
 const Page = () => {
-  console.log(patients[0].id);
-
   let id = usePathname().substring(27);
-  console.log(id);
   const patient = patients.find((p) => p.id === parseInt(id));
+  const prescription = prescriptions.find((x) => x.id === parseInt(id));
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -49,8 +46,6 @@ const Page = () => {
     setText(message);
     setVisible(true);
   };
-
-  console.log(patient.image);
 
   return (
     <>
@@ -82,44 +77,46 @@ const Page = () => {
           <div className="text-white text-lg font-semibold">{text}</div>
           <div className="bg-white text-black">
             <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
+              <TableCaption>Medications that the patient is on</TableCaption>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[100px]">Invoice</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Method</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
+                  <TableHead className="w-[100px]">Generic Name</TableHead>
+                  <TableHead>Brand Name</TableHead>
+                  <TableHead>Dosage</TableHead>
+                  <TableHead className="text-right">Price</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell className="font-medium">INV001</TableCell>
-                  <TableCell>Paid</TableCell>
-                  <TableCell>Credit Card</TableCell>
-                  <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
+                {prescription.medications.map((medication, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">
+                      {medication.brand_name}
+                    </TableCell>
+                    <TableCell>{medication.generic_name}</TableCell>
+                    <TableCell>{medication.dosage}</TableCell>
+                    <TableCell className="text-right">
+                      {medication.price}
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </div>
 
           <div className="bg-white text-black">
             <Table className="">
-              <TableCaption>A list of your recent invoices.</TableCaption>
+              <TableCaption>Allergies</TableCaption>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[100px]">Invoice</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Method</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
+                  <TableHead className="w-[100px]">Allergies</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell className="font-medium">INV001</TableCell>
-                  <TableCell>Paid</TableCell>
-                  <TableCell>Credit Card</TableCell>
-                  <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
+                {patient.allergies.map((allergy, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">{allergy}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </div>
