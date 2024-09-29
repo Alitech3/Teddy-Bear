@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { Mail } from "lucide-react";
+import { Mail, LogOut } from "lucide-react";
 
 const ProviderSidebar = () => {
   return (
@@ -12,7 +12,10 @@ const ProviderSidebar = () => {
         </Link>
       </div>
       <div className="flex flex-col h-full justify-end">
-        <Mail className="flex-" />
+        <div class="flex justify-evenly">
+          <LogOut />
+          <Mail className="flex" />
+        </div>
       </div>
     </div>
   );
