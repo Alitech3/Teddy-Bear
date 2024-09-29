@@ -7,18 +7,13 @@ import OpenAI from "openai";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import { DataTableDemo } from "@/components/Datatable";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
 import ProviderLayout from "@/components/ProviderLayout";
 import patients from "../../../../../data/patients.json";
 import { usePathname } from "next/navigation";
+import { readEnv } from "openai/core";
 
 const openai = new OpenAI({
-  apiKey: "",
+  apiKey: process.env.OpenAI_APIKey,
   dangerouslyAllowBrowser: true,
 });
 
