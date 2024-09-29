@@ -1,13 +1,12 @@
-import { Suspense } from 'react';
-import data from '../../../../data/patients.json';
-import visitData from '../../../../data/visit_history.json';
+import { Suspense } from "react";
+import data from "../../../../data/patients.json";
+import visitData from "../../../../data/visit_history.json";
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const PatientLayout = dynamic(
-  () => import('@/components/PatientLayout'),
-  { ssr: false }
-);
+const PatientLayout = dynamic(() => import("@/components/PatientLayout"), {
+  ssr: false,
+});
 
 export default function Home() {
   const patient = data[data.length - 1];
@@ -20,7 +19,7 @@ export default function Home() {
         <p>
           {patient.first_name} {patient.last_name}
         </p>
-        <img src={patient.image}/>
+        <img src={patient.image} />
         <table>
           <tr>
             <td>DOB</td>
