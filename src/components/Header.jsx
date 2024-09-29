@@ -1,4 +1,4 @@
-export default function Header({props}) {
+export default function Header({ props }) {
   return (
     <header className="bg-Primary text-white py-4 mr mb-8">
       <div className="container mx-auto flex justify-between items-center">
