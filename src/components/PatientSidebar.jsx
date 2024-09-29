@@ -9,7 +9,7 @@ const PatientSidebar = () => {
     <div className="z-1 top-0 left-0 h-screen w-52 bg-Secondary text-white flex flex-col p-4 gap-4 backdrop-blur-lg font-bold pt-20">
       <Logo />
       <div>
-        <Link href="/patient-view/my-medications">
+        <Link href="/patient-view">
           <h3 className="hover:text-gray-400 cursor-pointer">My Medications</h3>
         </Link>
       </div>
