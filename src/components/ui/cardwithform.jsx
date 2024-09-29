@@ -17,6 +17,7 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 
 export function CardWithForm({
   Title,
@@ -75,9 +76,11 @@ export function CardWithForm({
             </div>
           </div>
           <CardFooter className='flex justify-between mt-4'>
-            <Button variant='outline' type='button' href='/'>
-              Cancel
-            </Button>
+            <Link href='/' passHref>
+              <Button variant='outline' asChild>
+                <a>Cancel</a>
+              </Button>
+            </Link>
             <Button type='submit'>{Title}</Button>
           </CardFooter>
         </form>
