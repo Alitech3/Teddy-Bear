@@ -22,29 +22,31 @@ import Link from "next/link";
 
 export default function PatientCard({ patient, link }) {
   return (
-    <Card className="h-full" key={patient.index}>
+    <Card className="h-full flex flex-col" key={patient.index}>
       <CardHeader>
         <CardTitle>{patient.first_name + " " + patient.last_name}</CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-2 gap-y-3 min-w-fit">
+      <CardContent className="grid grid-cols-2 gap-y-3 min-w-fit h-fit">
         <img className="col-span-1 place-self-center" src={patient.image} />
         <Table className="col-span-1 w-full table-auto">
-          <TableRow>
-            <TableHead>DOB</TableHead>
-            <TableCell>{patient.date_of_birth}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableHead>Sex</TableHead>
-            <TableCell>{patient.sex}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableHead>Height</TableHead>
-            <TableCell>{patient.height}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableHead>Weight</TableHead>
-            <TableCell>{patient.weight}</TableCell>
-          </TableRow>
+          <TableBody>
+            <TableRow>
+              <TableHead>DOB</TableHead>
+              <TableCell>{patient.date_of_birth}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableHead>Sex</TableHead>
+              <TableCell>{patient.sex}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableHead>Height</TableHead>
+              <TableCell>{patient.height}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableHead>Weight</TableHead>
+              <TableCell>{patient.weight}</TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
         <CardDescription className="col-span-2">
           {patient.treat_notes.split("\n").map((note, index) => (
@@ -55,7 +57,7 @@ export default function PatientCard({ patient, link }) {
           ))}
         </CardDescription>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="mt-auto">
         <Button asChild>
           <Link className="w-1/2 mx-auto" href={link}>
             details
