@@ -9,29 +9,32 @@ export default function MyMedications({ patient_id }) {
   return (
     <>
       <PatientLayout>
-        <PageTitle text={"My Medications"} />
-        <div className="flex flex-col gap-5">
-          {prescriptionData[2].medications.map(
-            (medication, index) =>
-              index !== 0 && (
-                <MedicationCard
-                  key={index}
-                  index={index}
-                  medication={medication}
-                />
-              )
-          )}
-        </div>
-
-        <iframe
-          width="600"
-          height="450"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAlbXNaNhpa7wqP-BuEoOmWLz4XiXq5HWw
+        <div className="grid grid-cols-3 gap-6 max-w-fit mx-auto">
+          <div className="h-fit col-span-3">
+            <PageTitle text={"My Medications"} />
+          </div>
+          <div className="col-span-1 flex flex-col gap-5 h-dvh">
+            {prescriptionData[2].medications.map(
+              (medication, index) =>
+                index !== 0 && (
+                  <MedicationCard
+                    className="col-span-1"
+                    key={index}
+                    index={index}
+                    medication={medication}
+                  />
+                )
+            )}
+          </div>
+          <iframe
+            className="col-span-2 w-[650px] h-[500px]"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAlbXNaNhpa7wqP-BuEoOmWLz4XiXq5HWw
             &q=pharmacies+near+me"
-        ></iframe>
+          ></iframe>
+        </div>
       </PatientLayout>
     </>
   );

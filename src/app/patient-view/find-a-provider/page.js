@@ -75,16 +75,16 @@ export default function Home() {
 
     return (
       <PatientLayout>
-        <div className='flex items-center justify-center h-dvh'>
-          <Card className='w-80 max-h-fit'>
-            <CardHeader className='flex items-center justify-center'>
+        <div className="flex items-center justify-center h-dvh">
+          <Card className="w-80 max-h-fit">
+            <CardHeader className="flex items-center justify-center">
               <CardTitle>Search Providers</CardTitle>
             </CardHeader>
             <CardContent>
-              <Label htmlFor='specialty'>Specialty</Label>
+              <Label htmlFor="specialty">Specialty</Label>
               <Select onValueChange={(value) => setSelectedSpecialty(value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder='Select a specialty' />
+                  <SelectValue placeholder="Select a specialty" />
                 </SelectTrigger>
                 <SelectContent>
                   {specialties.map((specialty) => (
@@ -94,10 +94,10 @@ export default function Home() {
                   ))}
                 </SelectContent>
               </Select>
-              <Label htmlFor='insurance'>Insurance</Label>
+              <Label htmlFor="insurance">Insurance</Label>
               <Select onValueChange={(value) => setSelectedInsurance(value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder='Select your insurance provider' />
+                  <SelectValue placeholder="Select your insurance provider" />
                 </SelectTrigger>
                 <SelectContent>
                   {insurance.map((insurance) => (
@@ -107,10 +107,10 @@ export default function Home() {
                   ))}
                 </SelectContent>
               </Select>
-              <Label htmlFor='location'>Location</Label>
+              <Label htmlFor="location">Location</Label>
               <Select onValueChange={(value) => setSelectedLocation(value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder='Select your city' />
+                  <SelectValue placeholder="Select your city" />
                 </SelectTrigger>
                 <SelectContent>
                   {locations.map((location) => (
@@ -120,10 +120,10 @@ export default function Home() {
                   ))}
                 </SelectContent>
               </Select>
-              <Label htmlFor='rate'>Rates</Label>
+              <Label htmlFor="rate">Rates</Label>
               <Select onValueChange={(value) => setSelectedRate(value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder='Select your budget' />
+                  <SelectValue placeholder="Select your budget" />
                 </SelectTrigger>
                 <SelectContent>
                   {rates.map((rate) => (
@@ -134,7 +134,7 @@ export default function Home() {
                 </SelectContent>
               </Select>
             </CardContent>
-            <CardFooter className='flex items-center justify-center'>
+            <CardFooter className="flex items-center justify-center">
               <Button
                 onClick={() =>
                   handlePageChange("dating", {
@@ -143,7 +143,8 @@ export default function Home() {
                     location: selectedLocation,
                     rate: selectedRate,
                   })
-                }>
+                }
+              >
                 Set Preferences
               </Button>
             </CardFooter>
@@ -210,19 +211,20 @@ export default function Home() {
 
     function BrowseProviders() {
       return (
-        <div className='flex flex-col items-center justify-center space-y-6'>
+        <div className="flex flex-col items-center justify-center space-y-6">
           <Button
-            className='max-w-fit'
-            onClick={() => handleDatingStatus("return")}>
+            className="max-w-fit"
+            onClick={() => handleDatingStatus("return")}
+          >
             Return to Search
           </Button>
-          <div className='flex justify-center space-x-8'>
-            <div className='flex items-center'>
-              <Button onClick={() => handleDatingStatus("reject")} size='icon'>
+          <div className="flex justify-center space-x-8">
+            <div className="flex items-center">
+              <Button onClick={() => handleDatingStatus("reject")} size="icon">
                 <X />
               </Button>
             </div>
-            <Card className='w-80 min-h-2/3 max-h-fit'>
+            <Card className="w-80 min-h-2/3 max-h-fit">
               <CardHeader>
                 <CardTitle>
                   {provider.first_name} {provider.last_name}
@@ -233,16 +235,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <img
-                  className='pb-3'
+                  className="pb-3"
                   src={provider.image}
                   alt={`${provider.first_name} ${provider.last_name}`}
                 />
-                <CardDescription className='pb-2'>
+                <CardDescription className="pb-2">
                   {provider.accepted_insurance} - {provider.rates}
                 </CardDescription>
                 <p>{provider.short_description}</p>
               </CardContent>
-              <CardFooter className='flex items-center justify-center'>
+              <CardFooter className="flex items-center justify-center">
                 <Button onClick={() => handleDatingStatus("moreInfo")}>
                   Tell me more
                 </Button>
@@ -251,8 +253,8 @@ export default function Home() {
             {datingStatus === "moreInfo" && (
               <MoreInfo bio={provider.long_description} />
             )}
-            <div className='flex items-center'>
-              <Button onClick={() => handleDatingStatus("accept")} size='icon'>
+            <div className="flex items-center">
+              <Button onClick={() => handleDatingStatus("accept")} size="icon">
                 <Heart />
               </Button>
             </div>
@@ -263,7 +265,7 @@ export default function Home() {
 
     function MoreInfo({ bio }) {
       return (
-        <Card className='max-w-96 max-h-fit'>
+        <Card className="max-w-96 max-h-fit">
           <CardHeader>
             <CardTitle>
               About {provider.first_name} {provider.last_name}
@@ -272,7 +274,7 @@ export default function Home() {
           <CardContent>
             <p>{bio}</p>
           </CardContent>
-          <CardFooter className='flex items-center justify-center'>
+          <CardFooter className="flex items-center justify-center">
             <Button onClick={() => setDatingStatus("browse")}>Close</Button>
           </CardFooter>
         </Card>
@@ -282,10 +284,10 @@ export default function Home() {
     function ProviderContact({ provider }) {
       return (
         <>
-          <Button className='mb-6' onClick={() => handleDatingStatus("return")}>
+          <Button className="mb-6" onClick={() => handleDatingStatus("return")}>
             Return to Search
           </Button>
-          <Card className='w-80 min-h-2/3 max-h-fit'>
+          <Card className="w-80 min-h-2/3 max-h-fit">
             <CardHeader>
               <CardTitle>
                 {provider.first_name} {provider.last_name}
@@ -296,16 +298,16 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <img
-                className='pb-3'
+                className="pb-3"
                 src={provider.image}
                 alt={`${provider.first_name} ${provider.last_name}`}
               />
-              <CardDescription className='pb-2'>
+              <CardDescription className="pb-2">
                 {provider.accepted_insurance} - {provider.rates}
               </CardDescription>
               <p>{provider.short_description}</p>
             </CardContent>
-            <CardFooter className='flex flex-col items-start'>
+            <CardFooter className="flex flex-col items-start">
               <p>
                 <strong>Phone Number</strong>{" "}
                 <Link href={"tel:" + provider.phone_number}>
@@ -324,7 +326,7 @@ export default function Home() {
 
     return (
       <PatientLayout>
-        <div className='flex flex-col items-center justify-center h-fill'>
+        <div className="flex flex-col items-center justify-center h-fill">
           {(datingStatus === "browse" || datingStatus === "moreInfo") && (
             <BrowseProviders />
           )}

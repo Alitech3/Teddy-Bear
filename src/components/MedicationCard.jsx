@@ -11,14 +11,26 @@ import {
 
 export default function MedicationCard({ medication, index }) {
   return (
-    <Card className="h-32 w-full" key={index}>
-      <CardTitle className="p-3">{medication.brand_name}</CardTitle>
-      <CardContent className="flex flex-row gap-4 h-24">
-        <img src={medication.image}></img>
-        <CardDescription className=" overflow-auto">
-          {medication.dosage}
+    /*
+    {
+        "brand_name": "Zetia",
+        "generic_name": "ezetimibe",
+        "dosage": "10 mg",
+        "price": "$30.00",
+        "form_of_ingestion": "pill"
+      },
+      */
+    <Card className="h-fit w-full" key={index}>
+      <CardHeader>
+        <CardTitle>{medication.brand_name}</CardTitle>
+        <CardDescription>
+          {medication.generic_name} - {medication.dosage}{" "}
+          {medication.form_of_ingestion}
         </CardDescription>
-      </CardContent>
+      </CardHeader>
+      <CardFooter>
+        <CardDescription>{medication.price}</CardDescription>
+      </CardFooter>
     </Card>
   );
 }
