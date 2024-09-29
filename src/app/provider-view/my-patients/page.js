@@ -4,6 +4,7 @@ import ProviderLayout from "@/components/ProviderLayout";
 import Link from "next/link";
 
 export default function MyPatients() {
+
   return (
     <ProviderLayout>
       <div className='flex flex-col gap-10 pt-5'>
