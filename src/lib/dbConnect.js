@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const DATABASE_URL =
-  "mongodb+srv://aidenletourneau:WqIDGsh2IoPPvHKy@mycluster.xtjkf.mongodb.net/shellhacks2024?retryWrites=true&w=majority&appName=myCluster";
+  "mongodb+srv://aidenletourneau:P6g1OPwzAwiDjdJD@mycluster.xtjkf.mongodb.net/shellhacks2024?retryWrites=true&w=majority&appName=myCluster";
 
 if (!DATABASE_URL) {
   throw new Error(
