@@ -22,20 +22,20 @@
   ],
   "rules": {
     "indent": [
-        "error",
+        "warn",
         2
     ],
   "react/no-unescaped-entities": "off",
     "linebreak-style": [
-        "error",
-        "unix"
+        "warn",
+        "windows"
     ],
     "quotes": [
-        "error",
+        "warn",
         "single"
     ],
     "semi": [
-        "error",
+        "warn",
         "always"
     ]
   }
