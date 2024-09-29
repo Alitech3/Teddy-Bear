@@ -13,11 +13,9 @@ const ProviderSidebar = () => {
       </div>
       <div className="flex flex-col h-full justify-end">
         <div class="flex justify-evenly">
-          <LogOut
-            onClick={() => {
-              router.push("/");
-            }}
-          />
+          <Link href="/">
+            <LogOut />
+          </Link>
           <Mail className="flex" />
         </div>
       </div>
