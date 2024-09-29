@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 
 const patientSchema = new mongoose.Schema(
   {
-    id: {
-      type: String, // You can customize the type of id here
-      unique: true,
-    },
     first_name: {
       type: String,
       required: true,
@@ -17,10 +13,7 @@ const patientSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true, // Assuming this is the primary image
-    },
-    additional_image: {
-      type: String, // Optional secondary image
+      required: true,
     },
     date_of_birth: {
       type: Date,
@@ -67,7 +60,7 @@ const patientSchema = new mongoose.Schema(
       required: true,
     },
     prescriptions: {
-      type: [String], // List of prescription IDs or names
+      type: [String],
       default: [],
     },
   },

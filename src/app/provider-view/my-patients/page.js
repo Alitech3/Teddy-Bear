@@ -1,8 +1,8 @@
-"use client";
-import PatientCard from "@/components/PatientCard";
-import ProviderLayout from "@/components/ProviderLayout";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+import PatientCard from '@/components/PatientCard';
+import ProviderLayout from '@/components/ProviderLayout';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function MyPatients() {
   const [data, setData] = useState([]);
@@ -11,18 +11,18 @@ export default function MyPatients() {
     const fetchData = async () => {
       try {
         // Calling the same app's API via relative URL
-        const patientsData = await fetch("/api/patients", {
-          method: "GET",
+        const patientsData = await fetch('/api/patients', {
+          method: 'GET',
         });
 
         if (!patientsData.ok) {
-          throw new Error("Failed to fetch");
+          throw new Error('Failed to fetch');
         }
 
         const json = await patientsData.json();
         setData(json.results); // Assuming the data is in the `data` field
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        console.error('Error fetching data: ', error);
       }
     };
 
