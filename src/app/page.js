@@ -21,9 +21,9 @@ export default function Home() {
       </div>
       <div className="Mission">
         <div className='flex flex-col text-left text-4x1'>
-          <h1 style={{fontSize: "3em", color: "white"}} className='font-bold text-4xl'>Welcome to <b style={{fontSize: "1.5em", color: "#1793D4"}}>Meddy!</b></h1>
-          <p style={{fontSize: "1.5em", paddingTop: "20px", color: "white"}}  className='text-2x1'>
-            He's your solution to healthcare miscommunication
+          <h1 style={{fontSize: '3em', color: 'white'}} className='font-bold text-4xl'>Welcome to <b style={{fontSize: '1.5em', color: '#1793D4'}}>Meddy!</b></h1>
+          <p style={{fontSize: '1.5em', paddingTop: '20px', color: 'white'}}  className='text-2x1'>
+            The solution to healthcare miscommunication...
           </p>
         </div>
         <Image
