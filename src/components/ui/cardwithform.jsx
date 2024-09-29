@@ -10,6 +10,12 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 export function CardWithForm({
   Title,
@@ -17,9 +23,10 @@ export function CardWithForm({
   onSubmit,
   onNameChange,
   onPasswordChange,
+  onTypeChange,
 }) {
   return (
-    <Card className='w-[350px] block'>
+    <Card className='w-[350px]'>
       <CardHeader>
         <CardTitle>{Title}</CardTitle>
         <CardDescription>{Description}</CardDescription>
@@ -45,6 +52,19 @@ export function CardWithForm({
                 onChange={onPasswordChange}
                 required
               />
+            </div>
+            <div className='flex flex-col space-y-1.5'>
+              <Label htmlFor='type'>Account Type</Label>
+              <Select onValueChange={onTypeChange}>
+                {" "}
+                {/* Here the value is passed directly */}
+                <SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='patient'>Patient</SelectItem>
+                    <SelectItem value='provider'>Provider</SelectItem>
+                  </SelectContent>
+                </SelectTrigger>
+              </Select>
             </div>
           </div>
           <CardFooter className='flex justify-between mt-4'>
