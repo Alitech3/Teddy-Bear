@@ -28,7 +28,9 @@ const PatientSidebar = () => {
       </div>
       <div className="flex flex-col h-full justify-end">
         <div class="flex justify-evenly">
-          <LogOut />
+          <Link href="/">
+            <LogOut />
+          </Link>
           <Mail className="flex" />
         </div>
       </div>
