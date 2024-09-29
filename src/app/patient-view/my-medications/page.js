@@ -22,13 +22,13 @@ export default function MyMedications({ patient_id }) {
             <p>No meds found</p>
           )} */}
           <div className="flex flex-col gap-5">
-            {prescriptionData[2].medications.map((medication, index) => (
+            {/* prescriptionData[2].medications.map((medication, index) => (
               <MedicationCard
                 key={index}
                 index={index}
                 medication={medication}
               />
-            ))}
+            )) */}
           </div>
 
           <Link
