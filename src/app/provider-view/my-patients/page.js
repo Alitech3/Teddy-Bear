@@ -10,8 +10,8 @@ export default function MyPatients() {
         {data.map(
           (d, index) =>
             index <= 10 && (
-              <Link key={index} href={`/provider-view/my-patients/${index}`}>
-                <PatientCard key={index} patient={d} />
+              <Link key={d.id} href={`/provider-view/my-patients/${d.id}`}>
+                <PatientCard patient={d} />
               </Link>
             )
         )}
