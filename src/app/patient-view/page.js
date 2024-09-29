@@ -1,5 +1,3 @@
-'use client';
-import PatientSidebar from "@/components/PatientSidebar";
 import prescriptionData from "../../../data/prescriptions.json";
 import PatientLayout from "@/components/PatientLayout";
 import MedicationCard from "@/components/MedicationCard";

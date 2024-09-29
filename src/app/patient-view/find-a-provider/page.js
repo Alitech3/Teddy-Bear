@@ -75,7 +75,7 @@ export default function Home() {
 
     return (
       <PatientLayout>
-        <div className="flex items-center justify-center h-dvh">
+        <div className="flex items-center justify-center h-screen">
           <Card className="w-80 max-h-fit">
             <CardHeader className="flex items-center justify-center">
               <CardTitle>Search Providers</CardTitle>
