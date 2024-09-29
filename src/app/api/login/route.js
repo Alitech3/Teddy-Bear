@@ -12,7 +12,7 @@ export async function GET(req) {
   const user = await User.findOne({ name });
 
   if (user && user.password === password) {
-    return NextResponse.json({ message: `${name} logged in successfully!` });
+    return NextResponse.json({ userType: user.type });
   } else {
     return NextResponse.json(
       { message: "Invalid credentials", error: true },
