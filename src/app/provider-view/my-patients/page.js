@@ -1,8 +1,9 @@
-'use client';
-import PatientCard from '@/components/PatientCard';
-import ProviderLayout from '@/components/ProviderLayout';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+"use client";
+import PageTitle from "@/components/PageTitle";
+import PatientCard from "@/components/PatientCard";
+import ProviderLayout from "@/components/ProviderLayout";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function MyPatients() {
   const [data, setData] = useState([]);
@@ -11,18 +12,18 @@ export default function MyPatients() {
     const fetchData = async () => {
       try {
         // Calling the same app's API via relative URL
-        const patientsData = await fetch('/api/patients', {
-          method: 'GET',
+        const patientsData = await fetch("/api/patients", {
+          method: "GET",
         });
 
         if (!patientsData.ok) {
-          throw new Error('Failed to fetch');
+          throw new Error("Failed to fetch");
         }
 
         const json = await patientsData.json();
         setData(json.results); // Assuming the data is in the `data` field
       } catch (error) {
-        console.error('Error fetching data: ', error);
+        console.error("Error fetching data: ", error);
       }
     };
 
@@ -30,18 +31,22 @@ export default function MyPatients() {
   }, []);
   return (
     <ProviderLayout>
-      {data.length > 0 && (
-        <div className='flex flex-col gap-10 pt-5'>
+      <div className="min-h-screen min-w-5/6 max-w-fit mx-auto">
+        <PageTitle text={"My Patients"} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-fit">
           {data.map(
             (d, index) =>
               index <= 10 && (
-                <Link key={index} href={`/provider-view/my-patients/${d.id}`}>
-                  <PatientCard patient={d} />
+                <Link key={d.id} href={`/provider-view/my-patients/${d.id}`}>
+                  <PatientCard
+                    patient={d}
+                    link={`/provider-view/my-patients/${d.id}`}
+                  />
                 </Link>
               )
           )}
         </div>
-      )}
+      </div>
     </ProviderLayout>
   );
 }
