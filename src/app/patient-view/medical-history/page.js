@@ -3,6 +3,13 @@ import data from "../../../../data/patients.json";
 import visitData from "../../../../data/visit_history.json";
 
 import dynamic from "next/dynamic";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const PatientLayout = dynamic(() => import("@/components/PatientLayout"), {
   ssr: false,
@@ -15,45 +22,54 @@ export default function Home() {
   return (
     <Suspense fallback={<>Loading...</>}>
       <PatientLayout>
-        <h2>Medical History</h2>
-        <p>
-          {patient.first_name} {patient.last_name}
-        </p>
-        <img src={patient.image} />
-        <table>
-          <tr>
-            <td>DOB</td>
-            <td>{patient.date_of_birth}</td>
-          </tr>
-          <tr>
-            <td>Sex</td>
-            <td>{patient.sex}</td>
-          </tr>
-          <tr>
-            <td>Height</td>
-            <td>{patient.height}</td>
-          </tr>
-          <tr>
-            <td>Weight</td>
-            <td>{patient.weight}</td>
-          </tr>
-        </table>
-
-        <h3>Contact Info</h3>
-        <table>
-          <tr>
-            <td>Phone Number</td>
-            <td>{patient.phone_number}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>{patient.email}</td>
-          </tr>
-          <tr>
-            <td>Home Address</td>
-            <td>{patient.home_address}</td>
-          </tr>
-        </table>
+        <Card>
+          <CardHeader>
+            <CardTitle>Medical History</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-row">
+            <div className="">
+              <img src={patient.image} className="w-[200px]" />
+              <h2>
+                {patient.first_name} {patient.last_name}
+              </h2>
+              <table>
+                <tr>
+                  <td>DOB</td>
+                  <td>{patient.date_of_birth}</td>
+                </tr>
+                <tr>
+                  <td>Sex</td>
+                  <td>{patient.sex}</td>
+                </tr>
+                <tr>
+                  <td>Height</td>
+                  <td>{patient.height}</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>{patient.weight}</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <h3>Contact Info</h3>
+              <table>
+                <tr>
+                  <td>Phone Number</td>
+                  <td>{patient.phone_number}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{patient.email}</td>
+                </tr>
+                <tr>
+                  <td>Home Address</td>
+                  <td>{patient.home_address}</td>
+                </tr>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
 
         <h3>Diagnoses</h3>
         <p>{patient.diagnoses}</p>
