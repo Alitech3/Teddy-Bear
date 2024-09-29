@@ -109,13 +109,6 @@ export default function Sitemap() {
                       </Link>
                     </TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <Link href={"/patient-view/my-medications"}>
-                        My Medications
-                      </Link>
-                    </TableCell>
-                  </TableRow>
                 </TableBody>
               </Table>
 
@@ -127,15 +120,6 @@ export default function Sitemap() {
                     </TableCell>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>
-                      <Link href={"/provider-view/my-patients"}>
-                        My Patients
-                      </Link>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
               </Table>
             </CardContent>
           </Card>
