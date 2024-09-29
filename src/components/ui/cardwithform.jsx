@@ -25,6 +25,7 @@ export function CardWithForm({
   onSubmit,
   onNameChange,
   onPasswordChange,
+  enabled,
   onTypeChange = () => {}, // Default function if not provided
 }) {
   const [type, setType] = useState("");
@@ -63,16 +64,20 @@ export function CardWithForm({
               />
             </div>
             <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='type'>Account Type</Label>
-              <Select onValueChange={handleTypeChange} value={type}>
-                <SelectTrigger>
-                  <SelectValue placeholder='Select account type' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='patient'>Patient</SelectItem>
-                  <SelectItem value='provider'>Provider</SelectItem>
-                </SelectContent>
-              </Select>
+              {enabled && (
+                <>
+                  <Label htmlFor='type'>Account Type</Label>
+                  <Select onValueChange={handleTypeChange} value={type}>
+                    <SelectTrigger>
+                      <SelectValue placeholder='Select account type' />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value='patient'>Patient</SelectItem>
+                      <SelectItem value='provider'>Provider</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </>
+              )}
             </div>
           </div>
           <CardFooter className='flex justify-between mt-4'>

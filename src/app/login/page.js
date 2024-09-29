@@ -36,6 +36,7 @@ export default function Home() {
     <>
       <div className='flex h-screen justify-center items-center'>
         <CardWithForm
+          enabled={false}
           Title='Login'
           Description='Meddys got you :)'
           onSubmit={handleLoginSubmit}

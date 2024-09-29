@@ -42,6 +42,7 @@ export default function Signup() {
       <div className='flex h-screen justify-center items-center'>
         <CardWithForm
           Title='Sign-Up'
+          enabled={true}
           Description='Create your account'
           onSubmit={handleSignupSubmit}
           onNameChange={(e) => setName(e.target.value)}
