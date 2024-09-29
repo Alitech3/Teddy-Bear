@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <Suspense fallback={<>Loading...</>}>
       <PatientLayout>
-        <div className="grid grid-cols-2 gap-6 max-w-fit mx-auto">
+        <div className="grid grid-cols-2 gap-6 max-w-fit mx-auto pb-10">
           <div className="col-span-2">
             <PageTitle text={"Medical History"} />
           </div>
