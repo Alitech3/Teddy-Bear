@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectContent,
   SelectItem,
+  SelectValue,
 } from "@/components/ui/select";
 
 export function CardWithForm({
@@ -23,8 +24,15 @@ export function CardWithForm({
   onSubmit,
   onNameChange,
   onPasswordChange,
-  onTypeChange,
+  onTypeChange = () => {}, // Default function if not provided
 }) {
+  const [type, setType] = useState("");
+
+  const handleTypeChange = (value) => {
+    setType(value); // Update the local state
+    onTypeChange(value); // Call the provided function if available
+  };
+
   return (
     <Card className='w-[350px]'>
       <CardHeader>
@@ -55,15 +63,14 @@ export function CardWithForm({
             </div>
             <div className='flex flex-col space-y-1.5'>
               <Label htmlFor='type'>Account Type</Label>
-              <Select onValueChange={onTypeChange}>
-                {" "}
-                {/* Here the value is passed directly */}
+              <Select onValueChange={handleTypeChange} value={type}>
                 <SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value='patient'>Patient</SelectItem>
-                    <SelectItem value='provider'>Provider</SelectItem>
-                  </SelectContent>
+                  <SelectValue placeholder='Select account type' />
                 </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='patient'>Patient</SelectItem>
+                  <SelectItem value='provider'>Provider</SelectItem>
+                </SelectContent>
               </Select>
             </div>
           </div>

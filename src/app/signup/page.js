@@ -12,6 +12,8 @@ export default function Signup() {
 
   // Handle form submission
   const handleSignupSubmit = async (event) => {
+    console.log("doing shit");
+
     event.preventDefault();
 
     const response = await fetch("/api/signup", {
