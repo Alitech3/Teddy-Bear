@@ -39,11 +39,12 @@ export default function Signup() {
 
   return (
     <>
-      <div className='flex h-screen justify-center items-center'>
+      <div className="flex h-screen justify-center items-center">
         <CardWithForm
-          Title='Sign-Up'
+          Title="Sign-Up"
+          Display="Sign Up"
           enabled={true}
-          Description='Create your account'
+          Description="Create your account"
           onSubmit={handleSignupSubmit}
           onNameChange={(e) => setName(e.target.value)}
           onPasswordChange={(e) => setPassword(e.target.value)}

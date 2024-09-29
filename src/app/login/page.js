@@ -35,14 +35,15 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex h-screen justify-center items-center flex-col'>
+      <div className="flex h-screen justify-center items-center flex-col">
         {failed && (
-          <div className='rounded-md bg-red-500 m-3 p-4'>Login Failed</div>
+          <div className="rounded-md bg-red-500 m-3 p-4">Login Failed</div>
         )}
         <CardWithForm
           enabled={false}
-          Title='Login'
-          Description='Meddys got you :)'
+          Title="Login"
+          Display="Log In"
+          Description="Meddy's got you :)"
           onSubmit={handleLoginSubmit}
           onNameChange={(e) => setName(e.target.value)}
           onPasswordChange={(e) => setPassword(e.target.value)}

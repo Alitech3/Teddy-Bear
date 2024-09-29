@@ -21,6 +21,7 @@ import Link from "next/link";
 
 export function CardWithForm({
   Title,
+  Display,
   Description,
   onSubmit,
   onNameChange,
@@ -36,57 +37,57 @@ export function CardWithForm({
   };
 
   return (
-    <Card className='w-[350px]'>
+    <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>{Title}</CardTitle>
+        <CardTitle>{Display}</CardTitle>
         <CardDescription>{Description}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={onSubmit}>
-          <div className='grid w-full items-center gap-4'>
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='name'>Username</Label>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">Username</Label>
               <Input
-                id='name'
-                placeholder='Username'
+                id="name"
+                placeholder="Username"
                 onChange={onNameChange}
                 required
               />
             </div>
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='password'>Password</Label>
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="password">Password</Label>
               <Input
-                id='password'
-                placeholder='Password'
-                type='password'
+                id="password"
+                placeholder="Password"
+                type="password"
                 onChange={onPasswordChange}
                 required
               />
             </div>
-            <div className='flex flex-col space-y-1.5'>
+            <div className="flex flex-col space-y-1.5">
               {enabled && (
                 <>
-                  <Label htmlFor='type'>Account Type</Label>
+                  <Label htmlFor="type">Account Type</Label>
                   <Select onValueChange={handleTypeChange} value={type}>
                     <SelectTrigger>
-                      <SelectValue placeholder='Select account type' />
+                      <SelectValue placeholder="Select account type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value='patient'>Patient</SelectItem>
-                      <SelectItem value='provider'>Provider</SelectItem>
+                      <SelectItem value="patient">Patient</SelectItem>
+                      <SelectItem value="provider">Provider</SelectItem>
                     </SelectContent>
                   </Select>
                 </>
               )}
             </div>
           </div>
-          <CardFooter className='flex justify-between mt-4'>
-            <Link href='/' passHref>
-              <Button variant='outline' asChild>
+          <CardFooter className="flex justify-between mt-4">
+            <Link href="/" passHref>
+              <Button variant="outline" asChild>
                 <a>Cancel</a>
               </Button>
             </Link>
-            <Button type='submit'>{Title}</Button>
+            <Button type="submit">{Display}</Button>
           </CardFooter>
         </form>
       </CardContent>

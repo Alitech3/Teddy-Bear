@@ -15,10 +15,10 @@ export default function Home() {
     <div className="LandingContainer">
       <div className="Nav">
         <Link href={"./login"} id="Login">
-          Login
+          Log In
         </Link>
         <Link href={"./signup"} id="Signup">
-          Signup
+          Sign Up
         </Link>
       </div>
       <div className="Mission">
