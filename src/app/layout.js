@@ -3,10 +3,6 @@ import Logo from "@/components/Logo";
 
 import localFont from "next/font/local";
 import "./globals.css";
-<<<<<<< HEAD
-=======
-import Head from "next/head";
->>>>>>> e688dbaf352b09b9ea1a67e4bf65cdaaeba518c9
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Logo />
