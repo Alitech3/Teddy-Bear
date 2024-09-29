@@ -224,7 +224,7 @@ export default function Home() {
                 <X />
               </Button>
             </div>
-            <Card className="w-80 min-h-2/3 max-h-fit">
+            <Card className="w-80 min-h-2/3 max-h-fit mb-10">
               <CardHeader>
                 <CardTitle>
                   {provider.first_name} {provider.last_name}
