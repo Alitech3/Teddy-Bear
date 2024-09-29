@@ -1,10 +1,12 @@
-import data from "../../../../data/patients.json";
-import visitData from "../../../../data/visit_history.json";
-import PatientLayout from "@/components/PatientLayout";
+'use client';
+import data from '../../../../data/patients.json';
+import visitData from '../../../../data/visit_history.json';
+import PatientLayout from '@/components/PatientLayout';
 
 export default function Home() {
   const patient = data[27];
   const myVisits = visitData.slice(0, patient.visit_history);
+
   return (
     <>
       <PatientLayout>
@@ -12,7 +14,7 @@ export default function Home() {
         <p>
           {patient.first_name} {patient.last_name}
         </p>
-        <img src={patient.image} />
+        <img src={patient.image}/>
         <table>
           <tr>
             <td>DOB</td>
