@@ -1,4 +1,4 @@
-import data from "../../../../data/patients.json";
+"use client";
 import PatientCard from "@/components/PatientCard";
 import ProviderLayout from "@/components/ProviderLayout";
 import Link from "next/link";
