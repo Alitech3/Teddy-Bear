@@ -23,7 +23,7 @@ export default function NotFound() {
       </div>
       <main className="h-screen text-Text flex flex-col w-full place-items-center justify-center space-y-10">
         <h1 className="text-9xl">404 Error</h1>
-        <p className="text-3xl">Looks like someone made a fucky-wucky :c</p>
+        <p className="text-3xl">Looks like someone needs a hug :c</p>
         <Button asChild>
           <Link href="/">Go Back Home</Link>
         </Button>

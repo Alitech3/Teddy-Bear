@@ -6,7 +6,7 @@ import Bear from "../../../assets/home/Logo.png";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col w-full overflow-y-auto">
+    <div className="flex flex-col w-full overflow-y-auto">
       <div className="flex justify-end items-center">
         <Link
           className="mx-3 mt-4 mr-10 text-lg hover:text-blue-900 px-2 py-1 font-bold h-1/2 text-Text"
