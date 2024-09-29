@@ -34,10 +34,14 @@ export async function PUT(req) {
   await dbConnect();
 
   const body = await req.json(); // Extract JSON body
-  const updatedPatient = await Patient.findByIdAndUpdate(body._id, body, {
-    new: true, // Return the updated document
-    runValidators: true, // Validate before updating
-  });
+  const updatedPatient = await Patient.findOneAndUpdate(
+    { first_name: body.first_name },
+    body,
+    {
+      new: true, // Return the updated document
+      runValidators: true, // Validate before updating
+    }
+  );
 
   return NextResponse.json(
     {
