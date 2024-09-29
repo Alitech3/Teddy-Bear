@@ -20,6 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Loading from "@/app/loading";
 
 const PatientLayout = dynamic(() => import("@/components/PatientLayout"), {
   ssr: false,
@@ -30,7 +31,7 @@ export default function Home() {
   const myVisits = visitData.slice(0, patient.visit_history);
 
   return (
-    <Suspense fallback={<>Loading...</>}>
+    <Suspense fallback={<Loading/>}>
       <PatientLayout>
         <div className="grid grid-cols-2 gap-6 max-w-fit mx-auto pb-10">
           <div className="col-span-2">
