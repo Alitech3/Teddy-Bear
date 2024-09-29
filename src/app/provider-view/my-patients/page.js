@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MyPatients() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +20,7 @@ export default function MyPatients() {
         }
 
         const json = await patientsData.json();
-        setData(json.data); // Assuming the data is in the `data` field
+        setData(json.results); // Assuming the data is in the `data` field
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -30,16 +30,18 @@ export default function MyPatients() {
   }, []);
   return (
     <ProviderLayout>
-      <div className='flex flex-col gap-10 pt-5'>
-        {data.map(
-          (d, index) =>
-            index <= 10 && (
-              <Link key={d.id} href={`/provider-view/my-patients/${d.id}`}>
-                <PatientCard patient={d} />
-              </Link>
-            )
-        )}
-      </div>
+      {data.length > 0 && (
+        <div className='flex flex-col gap-10 pt-5'>
+          {data.map(
+            (d, index) =>
+              index <= 10 && (
+                <Link key={index} href={`/provider-view/my-patients/${d.id}`}>
+                  <PatientCard patient={d} />
+                </Link>
+              )
+          )}
+        </div>
+      )}
     </ProviderLayout>
   );
 }
