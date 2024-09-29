@@ -11,6 +11,7 @@ import ProviderLayout from "@/components/ProviderLayout";
 import patients from "../../../../../data/patients.json";
 import { usePathname } from "next/navigation";
 import { readEnv } from "openai/core";
+import Image from "next/image";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_AIKEY,
@@ -42,13 +43,18 @@ const Page = () => {
     setVisible(true);
   };
 
+  console.log(patient.image);
+
   return (
     <>
       <ProviderLayout>
         <div className="flex flex-col gap-10 pt-5">
-          <Label className=" p-6 text-white text-2xl">
-            {patients[id - 1].first_name + " " + patients[id - 1].last_name}
-          </Label>
+          <div class="flex items-center">
+            <img src={patient.image} width={120} height={120} sizes="fill"/>
+            <Label className=" p-6 text-white text-4xl">
+              {patients[id - 1].first_name + " " + patients[id - 1].last_name}
+            </Label>
+          </div>
           <DataTableDemo className="gap-4"></DataTableDemo>
           <DataTableDemo className="p-6"></DataTableDemo>
 
