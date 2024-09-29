@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="flex h-screen justify-center items-center">
-        <CardWithForm Title="Login" Description="Meddys got you :)" router={router}></CardWithForm>
+        <CardWithForm Title="Log In" Description="Meddy's got you :)" router={router}></CardWithForm>
       </div>
       <Footer />
     </>
